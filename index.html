@@ -99,7 +99,7 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      border-radius: 10px; /* Added to ensure rounded corners for the hero video */
+      border-radius: 10px;
     }
     .home-hero__inner {
       display: flex;
@@ -119,6 +119,7 @@
     }
     .hero-text-content h1 {
       color: white;
+      font-size: 2.5rem;
     }
     .home-hero__cta {
       margin-top: 1rem;
@@ -208,8 +209,68 @@
       object-fit: cover;
     }
 
+    /* Media queries for mobile devices */
+    @media (max-width: 768px) {
+      /* Hero section adjustments */
+      .home-hero {
+        min-height: auto; /* Allow height to adjust based on content */
+        flex-direction: column; /* Stack video and text vertically */
+      }
+      .hero-bg {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .home-hero__inner {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-text-content {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+      .hero-text-content h1 {
+        font-size: 2rem;
+      }
+      .hero-text-content p {
+        font-size: 1rem;
+      }
 
+      /* Projects section */
+      .features {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 1rem;
+        gap: 1.5rem;
+      }
+      .feature {
+        padding: 0.75rem;
+      }
+      .media-wrapper {
+        padding-top: 75%; /* Adjust aspect ratio for mobile */
+      }
 
+      /* General section adjustments */
+      section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Extra small screens (below 480px) */
+    @media (max-width: 480px) {
+      .hero-text-content h1 {
+        font-size: 1.5rem;
+      }
+      .hero-text-content p {
+        font-size: 0.85rem;
+      }
+      .btn {
+        padding: 0.8rem 1.5rem;
+      }
+    }
   </style>
 
   <script>
@@ -221,7 +282,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.1 }); /* Lowered threshold for earlier fade-in */
       document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
     });
   </script>
