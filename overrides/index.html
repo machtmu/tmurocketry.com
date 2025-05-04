@@ -230,9 +230,8 @@
 {% block content %}
   <!-- HERO with video background -->
   <section class="home-hero">
-    <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="{{ base_url }}/assets/images/hotfire-fallback.jpg">
       <source src="{{ base_url }}/assets/videos/hotfire.mp4" type="video/mp4">
-      <img src="{{ base_url }}/assets/images/hotfire-fallback.jpg" alt="Rocket engine hot‑fire">
     </video>
 
     <div class="home-hero__inner">
