@@ -1,0 +1,197 @@
+{# overrides/index.html #}
+{% extends "base.html" %}
+
+{# 1) Inject homepage-only CSS & JS into <head> #}
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    /* Full-screen gradient behind everything */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+      z-index: -1;
+    }
+
+    /* Transparent header and nav bars */
+    .md-header,
+    .md-header-nav,
+    .md-tabs {
+      background-color: transparent !important;
+      box-shadow: none          !important;
+    }
+
+    /* Hero section transparent and reduced bottom padding */
+    .home-hero {
+      background: transparent !important;
+      padding-bottom: 1rem !important;
+    }
+    .home-hero::before {
+      display: none !important;
+    }
+
+    /* Video section reduced top padding */
+    .video-section {
+      text-align: center;
+      padding-top: 1rem !important;
+      margin-bottom: 3rem;
+      margin-top: 0 !important;
+    }
+    .video-section video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 0.5rem;
+    }
+
+    /* Footer remains visible (transparent background) */
+    .md-footer,
+    .md-footer-meta {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    /* Hide auto-generated title and metadata */
+    .md-container.md-typeset > h1,
+    .md-container.md-typeset > .md-meta {
+      display: none !important;
+    }
+
+    /* Scroll-reveal: slide up from bottom */
+    .slide-in-bottom {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section styling */
+    section {
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Grid layout for features: two per row, one on narrow screens */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .feature img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('.slide-in-bottom').forEach(el => observer.observe(el));
+    });
+  </script>
+{% endblock %}
+
+{# 4) Homepage content sections #}
+{% block content %}
+
+  <!-- HERO with video background -->
+  <section class="home-hero">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+      <source src="{{ base_url }}/assets/videos/hotfire.mp4" type="video/mp4">
+      <!-- Optional fallback image -->
+      <img src="{{ base_url }}/assets/images/hotfire-fallback.jpg" alt="Rocket engine hot‑fire">
+    </video>
+
+    <div class="home-hero__inner">
+      <h1>{{ config.site_name }}</h1>
+      <p>The Metropolitan Aerospace Combustion Hub: A student team pioneering flight computers, propulsion testing, and ground stations.</p>
+
+      <div class="home-hero__cta">
+        <a href="{{ 'getting-started/' | url }}" class="btn btn-primary">Join Us</a>
+        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary">GitHub</a>{% endif %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section class="about slide-in-bottom">
+    <div class="md-container md-typeset">
+      <h2>About MACH</h2>
+      <p>MACH (Metropolitan Aerospace Combustion Hub) is a student-led group dedicated to aerospace innovation. We design and build flight computers, ground station software, and conduct both hot-fire and cold-flow rocket tests—producing technical reports that advance our field.</p>
+      <p>Our projects span from circuit design for avionics, data acquisition during engine tests, to mission control software for high-altitude flights. MACH provides hands-on aerospace experience for students passionate about propulsion and avionics.</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="features slide-in-bottom">
+    <!-- Flight Computers -->
+    <div class="feature">
+      <img src="{{ base_url }}/assets/images/template.png" alt="Flight Computer">
+      <h3>Flight Computers</h3>
+      <p>Developed with redundant sensors and real-time telemetry, our flight computers ensure safe and reliable rocket missions.</p>
+      <a href="{{ 'flight-computers/' | url }}" class="btn btn-primary">Explore</a>
+    </div>
+
+    <!-- Propulsion Testing -->
+    <div class="feature">
+      <img src="{{ base_url }}/assets/images/template.png" alt="Propulsion Testing">
+      <h3>Propulsion Testing</h3>
+      <p>Combining cold-flow injector experiments with full-scale hot-fire tests, we refine engine designs for peak performance and safety.</p>
+      <a href="{{ 'propulsion-testing/' | url }}" class="btn btn-primary">View Tests</a>
+    </div>
+
+    <!-- Ground Stations -->
+    <div class="feature">
+      <img src="{{ base_url }}/assets/images/template.png" alt="Ground Station">
+      <h3>Ground Stations</h3>
+      <p>Custom SDR-based ground stations provide real-time telemetry, command uplink, and data visualization for every launch.</p>
+      <a href="{{ 'ground-stations/' | url }}" class="btn btn-primary">Learn More</a>
+    </div>
+
+    <!-- Technical Reports -->
+    <div class="feature">
+      <img src="{{ base_url }}/assets/images/template.png" alt="Technical Report">
+      <h3>Technical Reports</h3>
+      <p>Our comprehensive reports document design methods, test procedures, and data analysis—supporting learning and peer review.</p>
+      <a href="{{ 'reports/' | url }}" class="btn btn-primary">Read</a>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section slide-in-bottom">
+    <div class="md-container md-typeset" style="text-align:center;">
+      <h2>Get Involved with MACH</h2>
+      <p>Join us to gain hands-on aerospace systems experience—build flight computers, test rocket engines, and run ground station operations.</p>
+      <a href="{{ 'join/' | url }}" class="btn btn-primary btn-lg">Apply Now</a>
+    </div>
+  </section>
+
+  {{ super() }}
+{% endblock %}

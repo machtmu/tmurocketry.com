@@ -1,0 +1,121 @@
+site_name: MACH
+
+site_url: https://machtmu.com/
+site_description: Metropolitan Aerospace and Combustion Hub
+site_author: MACH
+repo_url: https://github.com/machtmu/machtmu.com
+edit_uri: edit/main/docs/
+
+copyright:  Copyright © 2025 Metropolitan Aerospace and Combustion Hub
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: black
+
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: black
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    repo: fontawesome/brands/github
+  logo: img/logo.png
+  favicon: img/favicon.ico
+  features:
+    - content.action.edit
+    - content.code.copy
+    - navigation.indexes # makes index page the home page
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.top
+    - toc.follow
+    - navigation.sections
+
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      timezone: America/Toronto
+  #- git-committers:
+  #    repository: sonicavionics/sonicavionics.com
+  #   token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+  - blog:
+      authors: true
+  - search
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+  - table-reader
+
+markdown_extensions:
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+
+
+  - pymdownx.arithmatex:
+      generic: true
+
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra:
+  generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/marstmu/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/mars.tmu/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/marstmu/?originalSubdomain=ca
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/Wc7pYAxd
+    # - icon: custom/notion
+    #   link: https://marstmu.notion.site/MARS-Notion-1912fcb069e2804d92e6dc49248b4dbb
+
+extra_javascript:
+  # - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - css/extra.css
+  - css/home.css
+
+watch:
+  - docs     
+  - overrides 
+  - mkdocs.yml
