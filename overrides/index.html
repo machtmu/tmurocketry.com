@@ -1,7 +1,5 @@
-{# overrides/index.html #}
 {% extends "base.html" %}
 
-{# 1) Inject homepage-only CSS & JS into <head> #}
 {% block extrahead %}
   {{ super() }}
   <style>
@@ -22,13 +20,33 @@
       box-shadow: none          !important;
     }
 
-    /* Hero section transparent and reduced bottom padding */
+    /* Hero section with taller height for video */
     .home-hero {
       background: transparent !important;
       padding-bottom: 1rem !important;
+      position: relative;
+      min-height: 80vh; /* Added to make the hero section taller */
     }
     .home-hero::before {
       display: none !important;
+    }
+    .home-hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .home-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: flex; /* Added for vertical centering */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%; /* Ensure it takes the full height of the container */
     }
 
     /* Video section reduced top padding */
@@ -87,6 +105,11 @@
       border-radius: 0.5rem;
       padding: 1.5rem;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .feature img {
@@ -117,9 +140,7 @@
   </script>
 {% endblock %}
 
-{# 4) Homepage content sections #}
 {% block content %}
-
   <!-- HERO with video background -->
   <section class="home-hero">
     <video class="hero-bg" autoplay muted loop playsinline preload="auto">
@@ -138,7 +159,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- About Section -->
   <section class="about slide-in-bottom">

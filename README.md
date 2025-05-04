@@ -2,12 +2,9 @@
   
 ## This is the website for MACH
 
-</div>
-
-
 <p align="center">
   <a href="https://github.com/machtmu/machtmu.com/actions/workflows/ci.yml"><img
-    src="https://github.com/sonicavionics/machtmu.com/actions/workflows/ci.yml/badge.svg"
+    src="https://github.com/machtmu/machtmu.com/actions/workflows/ci.yml/badge.svg"
     alt="Build"
   /></a>
   <a href="https://github.com/machtmu/machtmu.com/actions/workflows/pages/pages-build-deployment"><img
