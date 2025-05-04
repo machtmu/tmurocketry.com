@@ -3,7 +3,7 @@
 {% block extrahead %}
   {{ super() }}
   <style>
-    /* Full-screen gradient behind everything */
+        /* Full-screen gradient behind everything */
     body::before {
       content: "";
       position: fixed;
@@ -216,15 +216,13 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+      const video = document.querySelector('.hero-bg');
+      if (video) {
+        video.play().catch(error => {
+          console.error('Video auto-play failed:', error);
+          // Optional: Add a play button or fallback here if needed
         });
-      }, { threshold: 0.01 }); /* Further lowered threshold for immediate fade-in */
-      document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
+      }
     });
   </script>
 {% endblock %}
@@ -233,6 +231,7 @@
   <!-- HERO with video background -->
   <section class="home-hero">
     <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+      <source src="{{ base_url }}/assets/videos/hotfire.webm" type="video/webm">
       <source src="{{ base_url }}/assets/videos/hotfire.mp4" type="video/mp4">
       <img src="{{ base_url }}/assets/images/hotfire-fallback.jpg" alt="Rocket engine hot‑fire">
     </video>
@@ -277,6 +276,7 @@
     <div class="feature slide-in-right">
       <div class="media-wrapper">
         <video autoplay muted loop playsinline preload="auto">
+          <source src="{{ base_url }}/assets/videos/coldflow1.webm" type="video/webm">
           <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
           <img src="{{ base_url }}/assets/images/coldflow-fallback.jpg" alt="Propulsion Testing">
         </video>
