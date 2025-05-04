@@ -67,11 +67,11 @@
       border-radius: 0.25rem;
       text-decoration: none;
       font-weight: 500;
-      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .btn:hover {
-      transform: translateY(-3px); /* Move button up on hover */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for lift effect */
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     /* Scroll-reveal animations */
@@ -125,11 +125,11 @@
       background-color: rgba(255, 255, 255, 0.05);
       padding: 1rem;
       border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .feature:hover {
-      transform: translateY(-5px); /* Move project card up on hover */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add shadow for lift effect */
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
     .media-wrapper {
       position: relative;
@@ -146,10 +146,29 @@
       object-fit: cover;
     }
 
-    /* Hide auto-generated title and metadata */
-    .md-container.md-typeset > h1,
-    .md-container.md-typeset > .md-meta {
+    /* Hide auto-generated title, metadata, edit button, and date */
+    .md-container.md-typeset > h1, /* Auto-generated title at the top */
+    .md-container.md-typeset > .md-meta, /* Auto-generated metadata at the top */
+    h1[title="Home"], /* Specifically target the "Home" title */
+    .md-source-file, /* Target for edit button */
+    .md-source-date, /* Target for date */
+    .md-meta__source, /* Metadata source/edit link */
+    .md-meta__date, /* Metadata date */
+    .md-source, /* Edit/source link container */
+    .md-source__link, /* Edit link */
+    .md-source__icon, /* Edit icon */
+    .md-content__button, /* Content buttons like edit */
+    [data-md-component="source"], /* Attribute selector for source/edit */
+    .md-content__button.md-icon, /* Icon buttons in content */
+    .md-source__repository /* Repository/edit link container */
+    {
       display: none !important;
+    }
+
+    /* Ensure custom section headings are not hidden */
+    .projects-intro h2,
+    .cta-section h2 {
+      display: block !important;
     }
   </style>
 
@@ -178,7 +197,7 @@
 
     <div class="home-hero__inner">
       <div class="hero-text-content">
-        <h1>{{ config.site_name }}</h1>
+        <h1>MACH</h1>
         <p>The Metropolitan Aerospace Combustion Hub: A student team pioneering flight computers, propulsion testing, and ground stations.</p>
       </div>
       <div class="home-hero__cta">
@@ -281,8 +300,5 @@
     </div>
   </section>
 
-  
   {{ super() }}
 {% endblock %}
-
-
