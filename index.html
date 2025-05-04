@@ -213,8 +213,9 @@
     @media (max-width: 768px) {
       /* Hero section adjustments */
       .home-hero {
-        min-height: auto; /* Allow height to adjust based on content */
+        min-height: 50vh; /* Reduced height for mobile */
         flex-direction: column; /* Stack video and text vertically */
+        padding: 0.5rem; /* Reduced padding */
       }
       .hero-bg {
         position: relative;
@@ -223,12 +224,13 @@
         border-radius: 10px;
       }
       .home-hero__inner {
-        padding: 1rem;
+        padding: 0.5rem; /* Reduced padding */
         flex-direction: column;
         align-items: center;
       }
       .hero-text-content {
-        margin-top: 1rem;
+        margin-top: 0.5rem; /* Reduced margin */
+        padding: 1rem; /* Reduced padding */
         width: 100%;
         text-align: center;
       }
@@ -242,11 +244,11 @@
       /* Projects section */
       .features {
         grid-template-columns: 1fr; /* Single column layout */
-        padding: 1rem;
-        gap: 1.5rem;
+        padding: 0.5rem; /* Reduced padding */
+        gap: 0.5rem; /* Further reduced gap */
       }
       .feature {
-        padding: 0.75rem;
+        padding: 0.5rem; /* Reduced padding */
       }
       .media-wrapper {
         padding-top: 75%; /* Adjust aspect ratio for mobile */
@@ -254,8 +256,8 @@
 
       /* General section adjustments */
       section {
-        padding: 1rem;
-        margin-bottom: 1.5rem;
+        padding: 0.5rem; /* Reduced padding */
+        margin-bottom: 0.5rem; /* Further reduced margin */
       }
     }
 
@@ -275,6 +277,43 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Add playing property to HTMLMediaElement
+      Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+        get: function () {
+          return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+        }
+      });
+
+      const video = document.querySelector('.hero-bg');
+      if (video) {
+        // Attempt to play the video on load
+        video.play().catch(error => {
+          console.log('Autoplay prevented:', error);
+        });
+
+        // Add event listener for suspend event (optional UI trigger)
+        video.addEventListener('suspend', () => {
+          console.log('Video suspended, awaiting user interaction');
+        });
+
+        // Add event listener for play event (optional UI cleanup)
+        video.addEventListener('play', () => {
+          console.log('Video playing');
+        });
+
+        // Play video on first user interaction with the page
+        document.body.addEventListener('click', function handler() {
+          if (!video.playing) {
+            video.play().catch(error => {
+              console.log('Manual play failed:', error);
+            });
+          }
+          // Remove listener after first interaction
+          document.body.removeEventListener('click', handler);
+        });
+      }
+
+      // Scroll reveal animations
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -282,7 +321,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 }); /* Lowered threshold for earlier fade-in */
+      }, { threshold: 0.01 });
       document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
     });
   </script>
@@ -1133,7 +1172,7 @@
       <p>At MACH, we are involved in a variety of projects that push the boundaries of aerospace technology. Our work includes designing and building flight computers, conducting propulsion tests, developing ground station software, and producing detailed technical reports. Below are some of our key projects:</p>
     </div>
     <!-- Flight Computers -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-left">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="Flight Computer">
       </div>
@@ -1142,7 +1181,7 @@
       <a href="flight-computers/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Explore</a>
     </div>
     <!-- Propulsion Testing -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-right">
       <div class="media-wrapper">
         <video autoplay muted loop playsinline preload="auto">
           <source src="./assets/videos/coldflow1.mp4" type="video/mp4">
@@ -1154,7 +1193,7 @@
       <a href="propulsion-testing/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">View Tests</a>
     </div>
     <!-- Ground Stations -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-left">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="Ground Station">
       </div>
@@ -1163,7 +1202,7 @@
       <a href="ground-stations/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
     </div>
     <!-- Technical Reports -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-right">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="Technical Report">
       </div>
@@ -1172,7 +1211,7 @@
       <a href="reports/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Read</a>
     </div>
     <!-- Avionics Software -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-left">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="Avionics Software">
       </div>
@@ -1181,7 +1220,7 @@
       <a href="avionics-software/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Discover</a>
     </div>
     <!-- Rocket Engine Design -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-right">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="Rocket Engine Design">
       </div>
@@ -1190,7 +1229,7 @@
       <a href="rocket-engine-design/" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
     </div>
     <!-- High-Altitude Testing -->
-    <div class="feature slide-in-bottom">
+    <div class="feature slide-in-left">
       <div class="media-wrapper">
         <img src="./assets/images/template.png" alt="High-Altitude Testing">
       </div>
