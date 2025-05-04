@@ -86,24 +86,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    }
-    .slide-in-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .slide-in-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    }
-    .slide-in-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
 
     /* Section styling */
     section {
@@ -261,7 +243,7 @@
           }
         });
       }, { threshold: 0.01 });
-      document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
+      document.querySelectorAll('.slide-in-bottom').forEach(el => observer.observe(el));
     });
   </script>
 {% endblock %}
@@ -301,7 +283,7 @@
       <p>At MACH, we are involved in a variety of projects that push the boundaries of aerospace technology. Our work includes designing and building flight computers, conducting propulsion tests, developing ground station software, and producing detailed technical reports. Below are some of our key projects:</p>
     </div>
     <!-- Flight Computers -->
-    <div class="feature slide-in-left">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="Flight Computer">
       </div>
@@ -310,7 +292,7 @@
       <a href="{{ 'flight-computers/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Explore</a>
     </div>
     <!-- Propulsion Testing -->
-    <div class="feature slide-in-right">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <video autoplay muted loop playsinline preload="auto">
           <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
@@ -322,7 +304,7 @@
       <a href="{{ 'propulsion-testing/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">View Tests</a>
     </div>
     <!-- Ground Stations -->
-    <div class="feature slide-in-left">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="Ground Station">
       </div>
@@ -331,7 +313,7 @@
       <a href="{{ 'ground-stations/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
     </div>
     <!-- Technical Reports -->
-    <div class="feature slide-in-right">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="Technical Report">
       </div>
@@ -340,7 +322,7 @@
       <a href="{{ 'reports/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Read</a>
     </div>
     <!-- Avionics Software -->
-    <div class="feature slide-in-left">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="Avionics Software">
       </div>
@@ -349,7 +331,7 @@
       <a href="{{ 'avionics-software/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Discover</a>
     </div>
     <!-- Rocket Engine Design -->
-    <div class="feature slide-in-right">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="Rocket Engine Design">
       </div>
@@ -358,7 +340,7 @@
       <a href="{{ 'rocket-engine-design/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
     </div>
     <!-- High-Altitude Testing -->
-    <div class="feature slide-in-left">
+    <div class="feature slide-in-bottom">
       <div class="media-wrapper">
         <img src="{{ base_url }}/assets/images/template.png" alt="High-Altitude Testing">
       </div>
