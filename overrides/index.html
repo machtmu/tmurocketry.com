@@ -8,7 +8,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+      background: linear-gradient(135deg, #2d27a2 0%, #671d29 100%);
       z-index: -1;
     }
 
@@ -17,15 +17,16 @@
     .md-header-nav,
     .md-tabs {
       background-color: transparent !important;
-      box-shadow: none          !important;
+      box-shadow: none !important;
     }
 
-    /* Hero section with taller height for video */
+    /* Hero section with taller video */
     .home-hero {
       background: transparent !important;
       padding-bottom: 1rem !important;
       position: relative;
-      min-height: 80vh; /* Added to make the hero section taller */
+      height: auto;
+      min-height: 60vh; /* Taller video */
     }
     .home-hero::before {
       display: none !important;
@@ -38,15 +39,30 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
+      aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
     }
     .home-hero__inner {
       position: relative;
       z-index: 1;
-      display: flex; /* Added for vertical centering */
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%; /* Ensure it takes the full height of the container */
+      height: 100%;
+    }
+    .home-hero__inner h1 {
+      color: black;
+      font-weight: 900; /* Maximum thickness */
+      font-size: 4rem; /* Large text size */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Improve readability */
+      line-height: 1.2; /* Better spacing for large text */
+    }
+    .home-hero__inner p {
+      color: black;
+      font-weight: 900; /* Maximum thickness */
+      font-size: 1.5rem; /* Larger text size */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Improve readability */
+      line-height: 1.2; /* Better spacing for large text */
     }
 
     /* Video section reduced top padding */
@@ -112,7 +128,8 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .feature img {
+    .feature img,
+    .feature video {
       width: 100%;
       height: auto;
       border-radius: 0.5rem;
@@ -181,7 +198,11 @@
 
     <!-- Propulsion Testing -->
     <div class="feature">
-      <img src="{{ base_url }}/assets/images/template.png" alt="Propulsion Testing">
+      <video autoplay muted loop playsinline preload="auto" style="width: 100%; border-radius: 0.5rem;">
+        <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
+        <!-- Optional fallback image -->
+        <img src="{{ base_url }}/assets/images/coldflow-fallback.jpg" alt="Propulsion Testing">
+      </video>
       <h3>Propulsion Testing</h3>
       <p>Combining cold-flow injector experiments with full-scale hot-fire tests, we refine engine designs for peak performance and safety.</p>
       <a href="{{ 'propulsion-testing/' | url }}" class="btn btn-primary">View Tests</a>
