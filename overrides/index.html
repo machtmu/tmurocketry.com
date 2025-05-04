@@ -8,7 +8,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #2d27a2 0%, #671d29 100%);
+      background: linear-gradient(135deg, #0a0925 0%, #260b0f 100%);
       z-index: -1;
     }
 
@@ -20,18 +20,17 @@
       box-shadow: none !important;
     }
 
-    /* Hero section with taller video */
+    /* Hero section with video background */
     .home-hero {
-      background: transparent !important;
-      padding-bottom: 1rem !important;
       position: relative;
-      height: auto;
-      min-height: 60vh; /* Taller video */
+      min-height: 70vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
     }
-    .home-hero::before {
-      display: none !important;
-    }
-    .home-hero video {
+    .hero-bg {
       position: absolute;
       top: 0;
       left: 0;
@@ -39,106 +38,118 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
     }
     .home-hero__inner {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      text-align: center;
+      padding: 2rem;
+      z-index: 1;
     }
-    .home-hero__inner h1 {
-      color: black;
-      font-weight: 900; /* Maximum thickness */
-      font-size: 4rem; /* Large text size */
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Improve readability */
-      line-height: 1.2; /* Better spacing for large text */
+    .hero-text-content {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
     }
-    .home-hero__inner p {
-      color: black;
-      font-weight: 900; /* Maximum thickness */
-      font-size: 1.5rem; /* Larger text size */
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Improve readability */
-      line-height: 1.2; /* Better spacing for large text */
+    .hero-text-content h1 {
+      color: white;
+    }
+    .home-hero__cta {
+      margin-top: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover */
+    }
+    .btn:hover {
+      transform: translateY(-3px); /* Move button up on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for lift effect */
     }
 
-    /* Video section reduced top padding */
-    .video-section {
-      text-align: center;
-      padding-top: 1rem !important;
-      margin-bottom: 3rem;
-      margin-top: 0 !important;
+    /* Scroll-reveal animations */
+    .slide-in-bottom {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
-    .video-section video {
-      width: 100%;
-      max-width: 800px;
+    .slide-in-bottom.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Section styling */
+    section {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      color: white;
+    }
+
+    /* Projects grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .feature {
+      text-align: center;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+    }
+    .feature:hover {
+      transform: translateY(-5px); /* Move project card up on hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add shadow for lift effect */
+    }
+    .media-wrapper {
+      position: relative;
+      padding-top: 56.25%;
+      overflow: hidden;
       border-radius: 0.5rem;
     }
-
-    /* Footer remains visible (transparent background) */
-    .md-footer,
-    .md-footer-meta {
-      background: transparent !important;
-      box-shadow: none !important;
+    .media-wrapper img, .media-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Hide auto-generated title and metadata */
     .md-container.md-typeset > h1,
     .md-container.md-typeset > .md-meta {
       display: none !important;
-    }
-
-    /* Scroll-reveal: slide up from bottom */
-    .slide-in-bottom {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Section styling */
-    section {
-      padding: 4rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Grid layout for features: two per row, one on narrow screens */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .feature:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .feature img,
-    .feature video {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn-lg {
-      padding: 1rem 2rem;
-      font-size: 1.25rem;
     }
   </style>
 
@@ -152,7 +163,7 @@
           }
         });
       }, { threshold: 0.2 });
-      document.querySelectorAll('.slide-in-bottom').forEach(el => observer.observe(el));
+      document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
     });
   </script>
 {% endblock %}
@@ -162,17 +173,17 @@
   <section class="home-hero">
     <video class="hero-bg" autoplay muted loop playsinline preload="auto">
       <source src="{{ base_url }}/assets/videos/hotfire.mp4" type="video/mp4">
-      <!-- Optional fallback image -->
       <img src="{{ base_url }}/assets/images/hotfire-fallback.jpg" alt="Rocket engine hot‑fire">
     </video>
 
     <div class="home-hero__inner">
-      <h1>{{ config.site_name }}</h1>
-      <p>The Metropolitan Aerospace Combustion Hub: A student team pioneering flight computers, propulsion testing, and ground stations.</p>
-
+      <div class="hero-text-content">
+        <h1>{{ config.site_name }}</h1>
+        <p>The Metropolitan Aerospace Combustion Hub: A student team pioneering flight computers, propulsion testing, and ground stations.</p>
+      </div>
       <div class="home-hero__cta">
-        <a href="{{ 'getting-started/' | url }}" class="btn btn-primary">Join Us</a>
-        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary">GitHub</a>{% endif %}
+        <a href="{{ 'getting-started/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Join Us</a>
+        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary" style="background-color: #333333; color: white;">GitHub</a>{% endif %}
       </div>
     </div>
   </section>
@@ -186,42 +197,77 @@
     </div>
   </section>
 
-  <!-- Projects Grid -->
+  <!-- Projects Section -->
   <section class="features slide-in-bottom">
+    <div class="projects-intro">
+      <h2>Our Projects</h2>
+      <p>At MACH, we are involved in a variety of projects that push the boundaries of aerospace technology. Our work includes designing and building flight computers, conducting propulsion tests, developing ground station software, and producing detailed technical reports. Below are some of our key projects:</p>
+    </div>
     <!-- Flight Computers -->
-    <div class="feature">
-      <img src="{{ base_url }}/assets/images/template.png" alt="Flight Computer">
+    <div class="feature slide-in-left">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="Flight Computer">
+      </div>
       <h3>Flight Computers</h3>
       <p>Developed with redundant sensors and real-time telemetry, our flight computers ensure safe and reliable rocket missions.</p>
-      <a href="{{ 'flight-computers/' | url }}" class="btn btn-primary">Explore</a>
+      <a href="{{ 'flight-computers/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Explore</a>
     </div>
-
     <!-- Propulsion Testing -->
-    <div class="feature">
-      <video autoplay muted loop playsinline preload="auto" style="width: 100%; border-radius: 0.5rem;">
-        <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
-        <!-- Optional fallback image -->
-        <img src="{{ base_url }}/assets/images/coldflow-fallback.jpg" alt="Propulsion Testing">
-      </video>
+    <div class="feature slide-in-right">
+      <div class="media-wrapper">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
+          <img src="{{ base_url }}/assets/images/coldflow-fallback.jpg" alt="Propulsion Testing">
+        </video>
+      </div>
       <h3>Propulsion Testing</h3>
       <p>Combining cold-flow injector experiments with full-scale hot-fire tests, we refine engine designs for peak performance and safety.</p>
-      <a href="{{ 'propulsion-testing/' | url }}" class="btn btn-primary">View Tests</a>
+      <a href="{{ 'propulsion-testing/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">View Tests</a>
     </div>
-
     <!-- Ground Stations -->
-    <div class="feature">
-      <img src="{{ base_url }}/assets/images/template.png" alt="Ground Station">
+    <div class="feature slide-in-left">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="Ground Station">
+      </div>
       <h3>Ground Stations</h3>
       <p>Custom SDR-based ground stations provide real-time telemetry, command uplink, and data visualization for every launch.</p>
-      <a href="{{ 'ground-stations/' | url }}" class="btn btn-primary">Learn More</a>
+      <a href="{{ 'ground-stations/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
     </div>
-
     <!-- Technical Reports -->
-    <div class="feature">
-      <img src="{{ base_url }}/assets/images/template.png" alt="Technical Report">
+    <div class="feature slide-in-right">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="Technical Report">
+      </div>
       <h3>Technical Reports</h3>
       <p>Our comprehensive reports document design methods, test procedures, and data analysis—supporting learning and peer review.</p>
-      <a href="{{ 'reports/' | url }}" class="btn btn-primary">Read</a>
+      <a href="{{ 'reports/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Read</a>
+    </div>
+    <!-- Avionics Software -->
+    <div class="feature slide-in-left">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="Avionics Software">
+      </div>
+      <h3>Avionics Software</h3>
+      <p>We develop software for flight control and monitoring, ensuring seamless operation during missions.</p>
+      <a href="{{ 'avionics-software/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Discover</a>
+    </div>
+    <!-- Rocket Engine Design -->
+    <div class="feature slide-in-right">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="Rocket Engine Design">
+      </div>
+      <h3>Rocket Engine Design</h3>
+      <p>Our team designs rocket engines optimized for efficiency, power, and reliability in various conditions.</p>
+      <a href="{{ 'rocket-engine-design/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Learn More</a>
+    </div>
+    <!-- High-Altitude Testing -->
+    <div class="feature slide-in-left">
+      <div class="media-wrapper">
+        <img src="{{ base_url }}/assets/images/template.png" alt="High-Altitude Testing">
+      </div>
+      <h3>High-Altitude Testing</h3>
+      <p>We conduct tests in high-altitude conditions to validate the performance of our aerospace components.</p>
+      <a href="{{ 'high-altitude-testing/' | url }}" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Explore</a>
     </div>
   </section>
 
@@ -229,8 +275,9 @@
   <section class="cta-section slide-in-bottom">
     <div class="md-container md-typeset" style="text-align:center;">
       <h2>Get Involved with MACH</h2>
-      <p>Join us to gain hands-on aerospace systems experience—build flight computers, test rocket engines, and run ground station operations.</p>
-      <a href="{{ 'join/' | url }}" class="btn btn-primary btn-lg">Apply Now</a>
+      <p>If you are passionate about aerospace and want to gain hands-on experience, consider joining MACH. We welcome students from all backgrounds who are eager to learn and contribute to our projects. Whether you are interested in avionics, propulsion, software development, or technical writing, there is a place for you in our team.</p>
+      <p>To apply, please click the button below or contact us at info@mach.org.</p>
+      <a href="{{ 'join/' | url }}" class="btn btn-primary btn-lg" style="background-color: #1a3c6e; color: white;">Apply Now</a>
     </div>
   </section>
 
