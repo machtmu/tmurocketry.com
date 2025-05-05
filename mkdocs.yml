@@ -6,7 +6,7 @@ site_author: MACH
 repo_url: https://github.com/machtmu/machtmu.com
 edit_uri: edit/main/docs/
 
-copyright:  Copyright © 2025 Metropolitan Aerospace and Combustion Hub
+copyright:  MACH © 2025 
 
 theme:
   name: material
