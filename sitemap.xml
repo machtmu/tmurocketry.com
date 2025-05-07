@@ -2,34 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://machtmu.com/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/Chimera/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://machtmu.com/GSE/GSE/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <loc>https://machtmu.com/Chimera/GSE/GSE/</loc>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/blog/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/blog/2025/05/04/new-website/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://machtmu.com/blog/2025/05/07/new-website/</loc>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/join/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/resources/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
     <url>
          <loc>https://machtmu.com/blog/archive/2025/</loc>
-         <lastmod>2025-05-05</lastmod>
+         <lastmod>2025-05-07</lastmod>
     </url>
 </urlset>
