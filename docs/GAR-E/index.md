@@ -5,61 +5,50 @@ hide:
   - path
 ---
 
-
-# GAR-E
-
 ## Blurb
-
+The GAR-E (Gaseous Ambient Liquid Oxygen Rocket Engine) is MACHTMU's flagship propulsion system. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce dignissim, quam vel tincidunt bibendum, nisi magna venenatis orci, a fermentum massa quam at magna. Donec vel vestibulum felis, id finibus tellus.
 
 ## Tests
 
-### Test Gallery
-
 <div class="test-gallery">
-    <div class="test-item">
-        <img src="path/to/test1-image.jpg" alt="Cold Flow Test - May 2023">
-        <h3>Cold Flow Test - May 2023</h3>
-        <p>Initial cold flow testing of the GAR-E engine system to validate propellant delivery.</p>
-        <a href="/docs/GAR-E/cold-flow-may2023" class="find-out-more">Find out more →</a>
-    </div>
     
     <div class="test-item">
-        <img src="path/to/test2-image.jpg" alt="Hot Fire Test #1 - July 2023">
+        <img src="coldflow_aug_23/thmbnl.png" alt="not found">
         <h3>Cold Flow Test - August 2023</h3>
         <p>First hot fire ignition test with partial duration burn.</p>
         <a href="/docs/GAR-E/hot-fire-july2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
-        <img src="path/to/test3-image.jpg" alt="Full Duration Test - September 2023">
+        <img src="hotfire_aug_23/thmbnl.png" alt="not found">
         <h3>Hot Fire Attempt #1 (unsuccessful) - August 2023</h3>
         <p>First successful full duration burn demonstrating complete engine cycle.</p>
         <a href="/docs/GAR-E/full-duration-sept2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
-        <img src="path/to/test4-image.jpg" alt="Throttle Test - November 2023">
+        <img src="hotfire_nov_23/thmbnl.jpg" alt="not found">
         <h3>Hotfire Attempt #2 (unsuccessful) - November 2023</h3>
         <p>Variable thrust testing demonstrating engine throttling capabilities from 60-100%.</p>
         <a href="/docs/GAR-E/throttle-nov2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
-        <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
+        <img src="GAR-E/hotfire_nov_23/thmbnl.jpg" alt="not found">
         <h3>GAR-E V2 Coldflow - July 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
     </div>
 
     <div class="test-item">
-        <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
+        <img src="path/to/test5-image.jpg" alt="not found">
         <h3>LC2024 Hotfire #3 (successful) - August 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
     </div>
 
     <div class="test-item">
-        <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
+        <img src="path/to/test5-image.jpg" alt="not found">
         <h3>Hotfire #4 (successful) - September 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
@@ -99,7 +88,7 @@ hide:
         margin-top: 1rem;
         padding: 0.5rem 1rem;
         background-color: #0066cc;
-        color: white;
+        color: white !important;
         text-decoration: none;
         border-radius: 4px;
         transition: background-color 0.3s ease;
@@ -107,8 +96,6 @@ hide:
     
     .find-out-more:hover {
         background-color: #004c99;
+        color: white !important;
     }
 </style>
-
-### Cold
-
