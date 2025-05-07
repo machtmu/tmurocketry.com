@@ -1,9 +1,11 @@
 ---
 hide:
-  - navigation   # your existing rules…
+  - navigation
   - toc
-  - path
 ---
+
+# GAR-E
+
 
 ## Blurb
 The GAR-E (Gaseous Ambient Liquid Oxygen Rocket Engine) is MACHTMU's flagship propulsion system. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce dignissim, quam vel tincidunt bibendum, nisi magna venenatis orci, a fermentum massa quam at magna. Donec vel vestibulum felis, id finibus tellus.
@@ -16,7 +18,7 @@ The GAR-E (Gaseous Ambient Liquid Oxygen Rocket Engine) is MACHTMU's flagship pr
         <img src="coldflow_aug_23/thmbnl.png" alt="not found">
         <h3>Cold Flow Test - August 2023</h3>
         <p>First hot fire ignition test with partial duration burn.</p>
-        <a href="/docs/GAR-E/hot-fire-july2023" class="find-out-more">Find out more →</a>
+        <a href="coldflow_aug_23/" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
@@ -27,21 +29,21 @@ The GAR-E (Gaseous Ambient Liquid Oxygen Rocket Engine) is MACHTMU's flagship pr
     </div>
     
     <div class="test-item">
-        <img src="hotfire_nov_23/thmbnl.jpg" alt="not found">
+        <img src="hotfire_nov_23/thmbnl.png" alt="not found">
         <h3>Hotfire Attempt #2 (unsuccessful) - November 2023</h3>
         <p>Variable thrust testing demonstrating engine throttling capabilities from 60-100%.</p>
-        <a href="/docs/GAR-E/throttle-nov2023" class="find-out-more">Find out more →</a>
+        <a href="hotfire_aug_23/" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
-        <img src="GAR-E/hotfire_nov_23/thmbnl.jpg" alt="not found">
+        <img src="garev2_jul_2024/thmbnl.png" alt="not found">
         <h3>GAR-E V2 Coldflow - July 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
-        <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
+        <a href="hotfire_nov_23/" class="find-out-more">Find out more →</a>
     </div>
 
     <div class="test-item">
-        <img src="path/to/test5-image.jpg" alt="not found">
+        <img src="hotfire_aug_24/thmbnl.png" alt="not found">
         <h3>LC2024 Hotfire #3 (successful) - August 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
