@@ -50,7 +50,7 @@ The GAR-E (Gaseous Ambient Liquid Oxygen Rocket Engine) is MACHTMU's flagship pr
     </div>
 
     <div class="test-item">
-        <img src="path/to/test5-image.jpg" alt="not found">
+        <img src="hotfire_sept_24/thmbnl.png" alt="not found">
         <h3>Hotfire #4 (successful) - September 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
