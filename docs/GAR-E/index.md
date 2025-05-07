@@ -1,13 +1,14 @@
+---
+hide:
+  - navigation   # your existing rules…
+  - toc
+  - path
+---
+
+
 # GAR-E
 
 ## Blurb
-
-<video controls src="IMG_4830.mov" title="Title" width="100%"></video>
-First hot fire attempt at LC2023
-
-
-<video controls src="MACH Hot Fire Test.mp4" title="Title" width="100%"></video>
-Static fire of GAR-E
 
 
 ## Tests
@@ -24,31 +25,46 @@ Static fire of GAR-E
     
     <div class="test-item">
         <img src="path/to/test2-image.jpg" alt="Hot Fire Test #1 - July 2023">
-        <h3>Hot Fire Test #1 - July 2023</h3>
+        <h3>Cold Flow Test - August 2023</h3>
         <p>First hot fire ignition test with partial duration burn.</p>
         <a href="/docs/GAR-E/hot-fire-july2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
         <img src="path/to/test3-image.jpg" alt="Full Duration Test - September 2023">
-        <h3>Full Duration Test - September 2023</h3>
+        <h3>Hot Fire Attempt #1 (unsuccessful) - August 2023</h3>
         <p>First successful full duration burn demonstrating complete engine cycle.</p>
         <a href="/docs/GAR-E/full-duration-sept2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
         <img src="path/to/test4-image.jpg" alt="Throttle Test - November 2023">
-        <h3>Throttle Test - November 2023</h3>
+        <h3>Hotfire Attempt #2 (unsuccessful) - November 2023</h3>
         <p>Variable thrust testing demonstrating engine throttling capabilities from 60-100%.</p>
         <a href="/docs/GAR-E/throttle-nov2023" class="find-out-more">Find out more →</a>
     </div>
     
     <div class="test-item">
         <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
-        <h3>Endurance Test - February 2024</h3>
+        <h3>GAR-E V2 Coldflow - July 2024</h3>
         <p>Extended duration testing validating engine reliability and thermal management.</p>
         <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
     </div>
+
+    <div class="test-item">
+        <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
+        <h3>LC2024 Hotfire #3 (successful) - August 2024</h3>
+        <p>Extended duration testing validating engine reliability and thermal management.</p>
+        <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
+    </div>
+
+    <div class="test-item">
+        <img src="path/to/test5-image.jpg" alt="Endurance Test - February 2024">
+        <h3>Hotfire #4 (successful) - September 2024</h3>
+        <p>Extended duration testing validating engine reliability and thermal management.</p>
+        <a href="/docs/GAR-E/endurance-feb2024" class="find-out-more">Find out more →</a>
+    </div>
+
 </div>
 
 <style>
