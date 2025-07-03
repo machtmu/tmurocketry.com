@@ -1,5 +1,5 @@
 ---
-title: MACH
+title: TMU Rocketry
 template: index.html
 
 hide:

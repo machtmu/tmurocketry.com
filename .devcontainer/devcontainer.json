@@ -1,5 +1,5 @@
 {
-  "name": "mach",
+  "name": "tmurocketry.com",
   "image": "mcr.microsoft.com/devcontainers/base:jammy",
   "features": {
     "ghcr.io/devcontainers/features/python": {},

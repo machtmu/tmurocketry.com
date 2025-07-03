@@ -1,14 +1,14 @@
 <div align="center">
   
-## This is the website for MACH
+## This is the website for TMU Rocketry
 
 <p align="center">
-  <a href="https://github.com/machtmu/machtmu.com/actions/workflows/ci.yml"><img
-    src="https://github.com/machtmu/machtmu.com/actions/workflows/ci.yml/badge.svg"
+  <a href="https://github.com/machtmu/tmurocketry.com/actions/workflows/ci.yml"><img
+    src="https://github.com/machtmu/tmurocketry.com/actions/workflows/ci.yml/badge.svg"
     alt="Build"
   /></a>
-  <a href="https://github.com/machtmu/machtmu.com/actions/workflows/pages/pages-build-deployment"><img
-    src="https://github.com/machtmu/machtmu.com/actions/workflows/pages/pages-build-deployment/badge.svg"
+  <a href="https://github.com/machtmu/tmurocketry.com/actions/workflows/pages/pages-build-deployment"><img
+    src="https://github.com/machtmu/tmurocketry.com/actions/workflows/pages/pages-build-deployment/badge.svg"
     alt="Downloads"
   /></a>
 </p>
