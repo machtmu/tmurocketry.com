@@ -205,11 +205,13 @@
 
     /* Section styling */
     section:not(.home-hero) {
-      background-color: rgba(20, 15, 40, 0.6); /* Darker, more opaque purple */
+      background-color: rgba(25, 30, 45, 0.7); /* Brighter, cooler space color */
       padding: 2rem;
       border-radius: 10px;
       margin-bottom: 2rem;
       color: white;
+      box-shadow: 0 0 15px rgba(0, 168, 255, 0.2); /* Glow effect */
+      border: 1px solid rgba(0, 168, 255, 0.1);
     }
 
     /* Projects grid */
@@ -223,15 +225,18 @@
     .feature {
       text-align: center;
       color: white;
-      background-color: rgba(30, 25, 50, 0.7); /* Matching feature background */
+      background-color: rgba(30, 40, 55, 0.7); /* Brighter, cooler space color */
       padding: 1rem;
       border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 168, 255, 0.15); /* Glow effect */
+      border: 1px solid rgba(0, 168, 255, 0.1);
     }
 
     .feature:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 168, 255, 0.4); /* Enhanced glow on hover */
+      border-color: rgba(0, 168, 255, 0.4);
     }
 
     .media-wrapper {
@@ -253,74 +258,37 @@
 
     /* Media queries for mobile devices */
     @media (max-width: 768px) {
-
-      /* Hero section adjustments */
       .home-hero {
-        min-height: 50vh;
-        /* Reduced height for mobile */
-        flex-direction: column;
-        /* Stack video and text vertically */
-        padding: 0.5rem;
-        /* Reduced padding */
-      }
-
-      .hero-bg {
-        position: relative;
-        width: 100%;
         height: auto;
-        border-radius: 10px;
+        min-height: 75vh; /* Taller video on mobile */
       }
 
       .home-hero__inner {
-        padding: 0.5rem;
-        /* Reduced padding */
-        flex-direction: column;
-        align-items: center;
+        padding: 1rem; /* Better spacing on mobile */
       }
 
-      .hero-text-content {
-        margin-top: 0.5rem;
-        /* Reduced margin */
-        padding: 1rem;
-        /* Reduced padding */
-        width: 100%;
-        text-align: center;
+      .hero-bg {
+        position: absolute; /* Disable fixed position on mobile */
+        height: 100%; /* Cover the hero area */
       }
 
       .hero-text-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
       .hero-text-content p {
         font-size: 1rem;
       }
 
-      /* Projects section */
-      .features {
-        grid-template-columns: 1fr;
-        /* Single column layout */
-        padding: 0.5rem;
-        /* Reduced padding */
-        gap: 0.5rem;
-        /* Further reduced gap */
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
       }
 
-      .feature {
-        padding: 0.5rem;
-        /* Reduced padding */
-      }
-
-      .media-wrapper {
-        padding-top: 75%;
-        /* Adjust aspect ratio for mobile */
-      }
-
-      /* General section adjustments */
-      section {
-        padding: 0.5rem;
-        /* Reduced padding */
-        margin-bottom: 0.5rem;
-        /* Further reduced margin */
+      /* Disable parallax on mobile for performance */
+      .home-hero__inner,
+      .hero-bg {
+        transform: none !important;
       }
     }
 
@@ -731,6 +699,7 @@
   <!-- HERO with video background -->
   <section class="home-hero">
     <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="./assets/images/hotfire-fallback.jpg">
+      <source src="./assets/videos/hotfirevertical.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="./assets/videos/hotfire.mp4" type="video/mp4">
     </video>
 
@@ -740,9 +709,9 @@
         <p>A student team pioneering flight computers, propulsion testing, and ground stations.</p>
       </div>
       <div class="home-hero__cta">
-        <a href="https://discord.gg/3kak7Ydu43" class="btn btn-primary" style="background-color: #5865F2; color: white;">Discord</a>
-        <a href="https://forms.gle/A2SYP1yG9MBLYpoK9" class="btn btn-primary" style="background-color: #7f5ad5; color: white;">Join Our Team</a>
-        <a href="https://github.com/machtmu/tmurocketry.com" class="btn btn-secondary" style="background-color: #23272A; color: white;">GitHub</a>
+        <a href="https://discord.gg/3kak7Ydu43" class="btn btn-primary" style="background-color: #00A8FF; color: white;">Discord</a>
+        <a href="https://forms.gle/A2SYP1yG9MBLYpoK9" class="btn btn-primary" style="background-color: #34495E; color: white;">Join Us</a>
+        <!-- <a href="https://github.com/machtmu/tmurocketry.com" class="btn btn-secondary" style="background-color: #2C3E50; color: white;">GitHub</a> -->
       </div>
     </div>
   </section>
