@@ -63,34 +63,46 @@
     
     
   
+  <link rel="stylesheet" href="./css/stars.css">
   <style>
-    /* Full-screen gradient behind everything */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #15134f 0%, #42131a 100%);
-      z-index: -1;
+    body {
+      background-color: #000; /* Fallback for when stars don't load */
     }
 
     /* Transparent header and nav bars */
-    .md-header,
-    .md-header-nav,
-    .md-tabs {
+    .md-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
       background-color: transparent !important;
       box-shadow: none !important;
     }
+    .md-main__inner {
+        margin-top: 0 !important;
+    }
+    .md-header-nav,
+    .md-tabs {
+      background-color: transparent !important;
+    }
 
-    /* Hero section with video background */
+    /* Full-screen hero section */
     .home-hero {
       position: relative;
-      min-height: 70vh;
-      overflow: hidden;
+      height: 100vh; /* Full viewport height */
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0;
+      margin: 0;
       background: transparent;
+      overflow: hidden;
     }
+
     .hero-bg {
       position: absolute;
       top: 0;
@@ -99,8 +111,8 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      border-radius: 10px;
     }
+
     .home-hero__inner {
       display: flex;
       flex-direction: column;
@@ -110,20 +122,24 @@
       padding: 2rem;
       z-index: 1;
     }
+
     .hero-text-content {
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(10, 5, 25, 0.75); /* Dark purple/blue tint */
       padding: 20px;
       border-radius: 10px;
       text-align: center;
       color: white;
     }
+
     .hero-text-content h1 {
       color: white;
       font-size: 2.5rem;
     }
+
     .home-hero__cta {
       margin-top: 1rem;
     }
+
     .btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -132,6 +148,7 @@
       font-weight: 500;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -143,14 +160,15 @@
       transform: translateY(50px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
+
     .slide-in-bottom.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* Section styling */
-    section {
-      background-color: rgba(255, 255, 255, 0.1);
+    section:not(.home-hero) {
+      background-color: rgba(20, 15, 40, 0.6); /* Darker, more opaque purple */
       padding: 2rem;
       border-radius: 10px;
       margin-bottom: 2rem;
@@ -164,25 +182,30 @@
       gap: 2rem;
       padding: 2rem;
     }
+
     .feature {
       text-align: center;
       color: white;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(30, 25, 50, 0.7); /* Matching feature background */
       padding: 1rem;
       border-radius: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .feature:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
+
     .media-wrapper {
       position: relative;
       padding-top: 56.25%;
       overflow: hidden;
       border-radius: 0.5rem;
     }
-    .media-wrapper img, .media-wrapper video {
+
+    .media-wrapper img,
+    .media-wrapper video {
       position: absolute;
       top: 0;
       left: 0;
@@ -193,53 +216,74 @@
 
     /* Media queries for mobile devices */
     @media (max-width: 768px) {
+
       /* Hero section adjustments */
       .home-hero {
-        min-height: 50vh; /* Reduced height for mobile */
-        flex-direction: column; /* Stack video and text vertically */
-        padding: 0.5rem; /* Reduced padding */
+        min-height: 50vh;
+        /* Reduced height for mobile */
+        flex-direction: column;
+        /* Stack video and text vertically */
+        padding: 0.5rem;
+        /* Reduced padding */
       }
+
       .hero-bg {
         position: relative;
         width: 100%;
         height: auto;
         border-radius: 10px;
       }
+
       .home-hero__inner {
-        padding: 0.5rem; /* Reduced padding */
+        padding: 0.5rem;
+        /* Reduced padding */
         flex-direction: column;
         align-items: center;
       }
+
       .hero-text-content {
-        margin-top: 0.5rem; /* Reduced margin */
-        padding: 1rem; /* Reduced padding */
+        margin-top: 0.5rem;
+        /* Reduced margin */
+        padding: 1rem;
+        /* Reduced padding */
         width: 100%;
         text-align: center;
       }
+
       .hero-text-content h1 {
         font-size: 2rem;
       }
+
       .hero-text-content p {
         font-size: 1rem;
       }
 
       /* Projects section */
       .features {
-        grid-template-columns: 1fr; /* Single column layout */
-        padding: 0.5rem; /* Reduced padding */
-        gap: 0.5rem; /* Further reduced gap */
+        grid-template-columns: 1fr;
+        /* Single column layout */
+        padding: 0.5rem;
+        /* Reduced padding */
+        gap: 0.5rem;
+        /* Further reduced gap */
       }
+
       .feature {
-        padding: 0.5rem; /* Reduced padding */
+        padding: 0.5rem;
+        /* Reduced padding */
       }
+
       .media-wrapper {
-        padding-top: 75%; /* Adjust aspect ratio for mobile */
+        padding-top: 75%;
+        /* Adjust aspect ratio for mobile */
       }
 
       /* General section adjustments */
       section {
-        padding: 0.5rem; /* Reduced padding */
-        margin-bottom: 0.5rem; /* Further reduced margin */
+        padding: 0.5rem;
+        /* Reduced padding */
+        margin-bottom: 0.5rem;
+        /* Further reduced margin */
       }
     }
 
@@ -248,9 +292,11 @@
       .hero-text-content h1 {
         font-size: 1.5rem;
       }
+
       .hero-text-content p {
         font-size: 0.85rem;
       }
+
       .btn {
         padding: 0.8rem 1.5rem;
       }
@@ -259,9 +305,26 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Create stars
+      const container = document.getElementById('stars-container');
+      if (container) {
+        for (let i = 0; i < 200; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          const size = Math.random() * 3;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.animationDuration = `${Math.random() * 5 + 2}s`;
+          star.style.animationDelay = `${Math.random() * 3}s`;
+          container.appendChild(star);
+        }
+      }
+
       // Add playing property to HTMLMediaElement
       Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-        get: function () {
+        get: function() {
           return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
         }
       });
@@ -613,6 +676,26 @@
     
     <div class="md-container" data-md-component="container">
       
+  <div id="stars-container"></div>
+  <!-- HERO with video background -->
+  <section class="home-hero">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="./assets/images/hotfire-fallback.jpg">
+      <source src="./assets/videos/hotfire.mp4" type="video/mp4">
+    </video>
+
+    <div class="home-hero__inner">
+      <div class="hero-text-content">
+        <h1>TMU Rocketry</h1>
+        <p>A student team pioneering flight computers, propulsion testing, and ground stations.</p>
+      </div>
+      <div class="home-hero__cta">
+        <a href="https://discord.gg/3kak7Ydu43" class="btn btn-primary" style="background-color: #5865F2; color: white;">Discord</a>
+        <a href="https://forms.gle/A2SYP1yG9MBLYpoK9" class="btn btn-primary" style="background-color: #7f5ad5; color: white;">Join Our Team</a>
+        <a href="https://github.com/machtmu/tmurocketry.com" class="btn btn-secondary" style="background-color: #23272A; color: white;">GitHub</a>
+      </div>
+    </div>
+  </section>
+
       
         
       
@@ -3483,25 +3566,6 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <!-- HERO with video background -->
-  <section class="home-hero">
-    <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="./assets/images/hotfire-fallback.jpg">
-      <source src="./assets/videos/hotfire.mp4" type="video/mp4">
-    </video>
-
-    <div class="home-hero__inner">
-      <div class="hero-text-content">
-        <h1>TMU Rocketry</h1>
-        <p>A student team pioneering flight computers, propulsion testing, and ground stations.</p>
-      </div>
-      <div class="home-hero__cta">
-        <a href="https://discord.gg/3kak7Ydu43" class="btn btn-primary" style="background-color: #1a3c6e; color: white;">Discord</a>
-        <a href="https://forms.gle/A2SYP1yG9MBLYpoK9" class="btn btn-primary" style="background-color: #5f1a6e; color: white;">Join Our Team</a>
-        <a href="https://github.com/machtmu/tmurocketry.com" class="btn btn-secondary" style="background-color: #333333; color: white;">GitHub</a>
-      </div>
-    </div>
-  </section>
-
   <!-- About Section -->
   <section class="about slide-in-bottom">
     <div class="md-container md-typeset">
