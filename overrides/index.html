@@ -80,24 +80,24 @@
       transition: transform 0.2s ease-out; /* For parallax */
     }
 
-    .hero-text-content {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1.5rem 2.5rem; /* Smaller bubble */
-      border-radius: 15px;
-      text-align: center;
-      color: white;
-      backdrop-filter: blur(5px); /* Frosted glass effect */
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-text-content h1 {
+    .home-hero__inner h1 {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 2.5rem; /* Even smaller font */
+      font-size: 5rem; /* Larger font for impact */
       color: white;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.5); /* Deeper shadow */
+      text-shadow: 0 5px 25px rgba(0,0,0,0.8); /* Stronger shadow for visibility */
       margin: 0;
       letter-spacing: -0.02em; /* Tighter letter spacing for modern look */
+    }
+
+    .home-hero__inner p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #FFFFFF; /* Brighter text */
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Softer shadow for better contrast */
+      max-width: 800px; /* Constrain width for readability */
+      line-height: 1.4;
     }
 
     .hero-text-content p {
@@ -203,20 +203,25 @@
       }
 
       .home-hero__inner {
-        padding: 1rem; /* Better spacing on mobile */
+        padding: 2rem 1rem; /* Better vertical and horizontal spacing on mobile */
+      }
+
+      .home-hero__inner h1 {
+        font-size: 2.5rem; /* Larger font size for better readability */
+        margin-bottom: 1rem; /* Add more space below the heading */
+        line-height: 1.2; /* Better line height for mobile */
+      }
+
+      .home-hero__inner p {
+        font-size: 1.1rem; /* Slightly larger font size */
+        margin-top: 1rem; /* More space above the paragraph */
+        line-height: 1.5; /* Better line height for readability */
+        max-width: 90%; /* Constrain width for better mobile readability */
       }
 
       .hero-bg {
         position: absolute; /* Disable fixed position on mobile */
         height: 100%; /* Cover the hero area */
-      }
-
-      .hero-text-content h1 {
-        font-size: 2rem;
-      }
-
-      .hero-text-content p {
-        font-size: 1rem;
       }
 
       .btn {
@@ -233,16 +238,24 @@
 
     /* Extra small screens (below 480px) */
     @media (max-width: 480px) {
-      .hero-text-content h1 {
-        font-size: 1.5rem;
+      .home-hero__inner {
+        padding: 1.5rem 1rem; /* Adjust padding for very small screens */
       }
 
-      .hero-text-content p {
-        font-size: 0.85rem;
+      .home-hero__inner h1 {
+        font-size: 2rem; /* Adjusted font size for small screens */
+        margin-bottom: 0.8rem;
+      }
+
+      .home-hero__inner p {
+        font-size: 1rem; /* Adjusted font size for small screens */
+        margin-top: 0.8rem;
+        max-width: 95%; /* More width utilization on small screens */
       }
 
       .btn {
         padding: 0.8rem 1.5rem;
+        font-size: 0.9rem; /* Slightly smaller button text */
       }
     }
   </style>
@@ -340,15 +353,8 @@
     </video>
 
     <div class="home-hero__inner">
-      <div class="hero-text-content">
         <h1>TMU Rocketry</h1>
-        <p>A student team pioneering flight computers, propulsion testing, and ground stations.</p>
-      </div>
-      <div class="home-hero__cta">
-        <a href="{{ 'https://discord.gg/3kak7Ydu43' | url }}" class="btn btn-primary" style="background-color: #00A8FF; color: white;">Discord</a>
-        <a href="{{ 'https://forms.gle/A2SYP1yG9MBLYpoK9' | url }}" class="btn btn-primary" style="background-color: #34495E; color: white;">Join Us</a>
-        <!-- {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary" style="background-color: #2C3E50; color: white;">GitHub</a>{% endif %} -->
-      </div>
+        <p>student built liquid propulstion systems, advanced avionics, high quality research</p>
     </div>
   </section>
 {% endblock %}
@@ -360,6 +366,11 @@
       <h2>About TMU Rocketry</h2>
       <p>TMU Rocketry is a student-led group dedicated to aerospace innovation. We design and build flight computers, ground station software, and conduct both hot-fire and cold-flow rocket tests—producing technical reports that advance our field.</p>
       <p>Our projects span from circuit design for avionics, data acquisition during engine tests, to mission control software for high-altitude flights. TMU Rocketry provides hands-on aerospace experience for students passionate about propulsion and avionics.</p>
+      <div class="home-hero__cta" style="margin-top: 2rem; text-align: center;">
+        <a href="{{ 'https://discord.gg/3kak7Ydu43' | url }}" class="btn btn-primary" style="background-color: #00A8FF; color: white;">Discord</a>
+        <a href="{{ 'https://forms.gle/A2SYP1yG9MBLYpoK9' | url }}" class="btn btn-primary" style="background-color: #34495E; color: white;">Join Our Team</a>
+        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary" style="background-color: #2C3E50; color: white;">GitHub</a>{% endif %}
+      </div>
     </div>
   </section>
 
