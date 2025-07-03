@@ -1,12 +1,12 @@
 site_name: MACH
 
-site_url: https://machtmu.com/
-site_description: Metropolitan Aerospace and Combustion Hub
-site_author: MACH
-repo_url: https://github.com/machtmu/machtmu.com
+site_url: https://tmurocketry.com/
+site_description: TMU Rocketry
+site_author: TMU Rocketry
+repo_url: https://github.com/machtmu/tmurocketry.com
 edit_uri: edit/main/docs/
 
-copyright:  MACH © 2025 
+copyright: TMU Rocketry © 2025 
 
 theme:
   name: material
