@@ -229,6 +229,36 @@
         font-size: 1rem;
       }
 
+      /* About section mobile improvements */
+      section.about {
+        padding: 1.5rem 1rem; /* Better padding for mobile */
+      }
+
+      section.about h2 {
+        font-size: 1.8rem; /* Adjust heading size */
+        margin-bottom: 1rem; /* Add space below heading */
+        text-align: center; /* Center align on mobile */
+      }
+
+      section.about p {
+        font-size: 1rem; /* Comfortable reading size */
+        line-height: 1.6; /* Better line height */
+        margin-bottom: 1rem; /* Space between paragraphs */
+      }
+
+      .home-hero__cta {
+        margin-top: 2rem !important; /* Ensure proper spacing above buttons */
+        padding: 0 1rem; /* Add horizontal padding */
+      }
+
+      .home-hero__cta .btn {
+        display: block; /* Stack buttons vertically on mobile */
+        margin: 0.5rem auto; /* Center buttons with vertical spacing */
+        width: 100%; /* Full width buttons */
+        max-width: 250px; /* But not too wide */
+        text-align: center; /* Center text */
+      }
+
       /* Disable parallax on mobile for performance */
       .home-hero__inner,
       .hero-bg {
@@ -256,6 +286,30 @@
       .btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem; /* Slightly smaller button text */
+      }
+
+      /* About section for very small screens */
+      section.about {
+        padding: 1rem 0.75rem; /* Tighter padding for small screens */
+      }
+
+      section.about h2 {
+        font-size: 1.5rem; /* Smaller heading for small screens */
+        margin-bottom: 0.8rem;
+      }
+
+      section.about p {
+        font-size: 0.9rem; /* Smaller text for small screens */
+        line-height: 1.5;
+      }
+
+      .home-hero__cta {
+        padding: 0 0.5rem; /* Less horizontal padding */
+      }
+
+      .home-hero__cta .btn {
+        font-size: 0.9rem; /* Smaller button text */
+        padding: 0.75rem 1.25rem; /* Smaller button padding */
       }
     }
   </style>
