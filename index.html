@@ -64,7 +64,7 @@
     
   
   <link rel="stylesheet" href="./css/stars.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@300;400;600;700&display=swap">
   <style>
     body {
       background-color: #000; /* Fallback for when stars don't load */
@@ -95,6 +95,10 @@
     .md-main__inner {
         margin-top: 0 !important;
     }
+    .md-content {
+        z-index: 1;
+        position: relative;
+    }
     .md-header-nav,
     .md-tabs {
       background-color: transparent !important;
@@ -113,7 +117,7 @@
       padding: 0;
       margin: 0;
       background: transparent;
-      overflow: hidden;
+      overflow: hidden; /* Contain the parallaxing background */
     }
 
     .hero-bg {
@@ -121,7 +125,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100%; /* Adjust for less zoom */
       object-fit: cover;
       z-index: -1;
     }
@@ -139,7 +143,7 @@
 
     .hero-text-content {
       background: rgba(0, 0, 0, 0.5);
-      padding: 2rem 3rem;
+      padding: 1.5rem 2.5rem; /* Smaller bubble */
       border-radius: 15px;
       text-align: center;
       color: white;
@@ -148,12 +152,13 @@
     }
 
     .hero-text-content h1 {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 4rem; /* Larger font */
+      font-size: 2.5rem; /* Even smaller font */
       color: white;
       text-shadow: 0 2px 15px rgba(0,0,0,0.5); /* Deeper shadow */
       margin: 0;
+      letter-spacing: -0.02em; /* Tighter letter spacing for modern look */
     }
 
     .hero-text-content p {
@@ -170,16 +175,20 @@
 
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.25rem;
+      padding: 1rem 2rem; /* Bigger buttons */
+      border-radius: 12px; /* More rounded corners */
       text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      margin: 0 0.5rem;
+      border: 2px solid transparent;
+      backdrop-filter: blur(10px);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     /* Scroll-reveal animations */
@@ -389,10 +398,14 @@
       // Parallax effect
       window.addEventListener('scroll', function() {
         const heroContent = document.querySelector('.home-hero__inner');
+        const heroBg = document.querySelector('.hero-bg');
         const scrollPosition = window.pageYOffset;
 
         if (heroContent) {
           heroContent.style.transform = `translateY(${scrollPosition * -0.3}px)`;
+        }
+        if (heroBg) {
+          heroBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
         }
       });
 
