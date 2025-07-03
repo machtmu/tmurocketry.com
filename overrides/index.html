@@ -3,10 +3,20 @@
 {% block extrahead %}
   {{ super() }}
   <link rel="stylesheet" href="{{ base_url }}/css/stars.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap">
   <style>
+    /* SPACING SYSTEM - Professional consistency */
+    :root {
+      --spacing-xs: 0.5rem;   /* 8px */
+      --spacing-sm: 0.75rem;  /* 12px */
+      --spacing-md: 1rem;     /* 16px */
+      --spacing-lg: 1.5rem;   /* 24px */
+      --spacing-xl: 2rem;     /* 32px */
+      --spacing-xxl: 3rem;    /* 48px */
+    }
+
     body {
-      background-color: #000; /* Fallback for when stars don't load */
+      background-color: #0A0E1A; /* Professional dark navy */
     }
 
     /* Transparent header and nav bars */
@@ -25,8 +35,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 300px; /* Adjust height for desired gradient size */
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+      height: 120px; /* Reduced height for cleaner look */
+      background: linear-gradient(to bottom, rgba(10,14,26,0.95) 0%, rgba(10,14,26,0) 100%);
       z-index: -1; /* Place it behind the header content */
       pointer-events: none; /* Ensure it doesn't block interactions */
     }
@@ -75,29 +85,32 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem;
+      padding: var(--spacing-xxl) var(--spacing-xl); /* Consistent spacing */
       z-index: 1;
-      transition: transform 0.2s ease-out; /* For parallax */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .home-hero__inner h1 {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 3.5rem; /* Reduced from 5rem for better proportion */
+      font-size: 3.2rem;
       color: white;
-      text-shadow: 0 8px 32px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5); /* Enhanced layered shadow */
-      margin: 0;
-      letter-spacing: -0.02em; /* Tighter letter spacing for modern look */
+      text-shadow: 0 4px 16px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6);
+      margin: 0 0 var(--spacing-lg) 0; /* Consistent margin */
+      letter-spacing: -0.01em;
+      line-height: 1.1;
     }
 
     .home-hero__inner p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      color: #FFFFFF; /* Brighter text */
-      text-shadow: 0 4px 16px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6); /* Enhanced shadow for better contrast */
-      max-width: 800px; /* Constrain width for readability */
-      line-height: 1.4;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0; /* Reset margin */
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 3px 12px rgba(0,0,0,0.7), 0 1px 6px rgba(0,0,0,0.5);
+      max-width: 700px;
+      line-height: 1.6;
     }
 
     .hero-text-content p {
@@ -108,33 +121,45 @@
       text-shadow: 0 1px 5px rgba(0,0,0,0.4);
     }
 
+    /* CTA section in about - consistent spacing */
     .home-hero__cta {
-      margin-top: 1.5rem;
+      margin-top: var(--spacing-xl); /* Consistent spacing */
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Video container consistent spacing */
+    .video-container {
+      margin: var(--spacing-md) 0 var(--spacing-md) 0 !important; /* Consistent video spacing */
     }
 
     .btn {
       display: inline-block;
-      padding: 1rem 2rem; /* Bigger buttons */
-      border-radius: 12px; /* More rounded corners */
+      padding: var(--spacing-sm) var(--spacing-xl); /* Consistent button padding */
+      border-radius: 4px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      margin: 0 0.5rem;
-      border: 2px solid transparent;
-      backdrop-filter: blur(10px);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      margin: 0 var(--spacing-xs); /* Consistent button spacing */
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     /* Scroll-reveal animations */
     .slide-in-bottom {
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transform: translateY(30px); /* Reduced for subtlety */
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
 
     .slide-in-bottom.visible {
@@ -144,19 +169,44 @@
 
     /* Section styling */
     section:not(.home-hero) {
-      background-color: rgba(25, 30, 45, 0.7); /* Brighter, cooler space color */
-      padding: 2rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
+      background-color: rgba(15, 20, 30, 0.85);
+      padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl); /* Consistent section padding */
+      border-radius: 6px;
+      margin-bottom: var(--spacing-xl); /* Consistent section spacing */
       color: white;
-      box-shadow: 0 0 15px rgba(0, 168, 255, 0.2); /* Glow effect */
-      border: 1px solid rgba(0, 168, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Override MkDocs default spacing - ALL CONSISTENT */
+    section:not(.home-hero) .md-container {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    section:not(.home-hero) .md-typeset h2 {
+      margin: 0 0 var(--spacing-lg) 0 !important; /* Consistent heading spacing */
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+
+    section:not(.home-hero) .md-typeset p {
+      margin: 0 0 var(--spacing-md) 0 !important; /* Consistent paragraph spacing */
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    section:not(.home-hero) .md-typeset p:last-of-type {
+      margin-bottom: 0 !important; /* Remove margin from last paragraph */
     }
 
     /* Projects grid */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       padding: 2rem;
     }
@@ -164,18 +214,17 @@
     .feature {
       text-align: center;
       color: white;
-      background-color: rgba(30, 40, 55, 0.7); /* Brighter, cooler space color */
-      padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 168, 255, 0.15); /* Glow effect */
-      border: 1px solid rgba(0, 168, 255, 0.1);
+      background-color: rgba(20, 25, 35, 0.8); /* Professional dark background */
+      padding: 2rem 1.5rem;
+      border-radius: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 168, 255, 0.4); /* Enhanced glow on hover */
-      border-color: rgba(0, 168, 255, 0.4);
+      transform: translateY(-2px); /* Subtle hover effect */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .media-wrapper {
@@ -199,64 +248,64 @@
     @media (max-width: 768px) {
       .home-hero {
         height: auto;
-        min-height: 75vh; /* Taller video on mobile */
+        min-height: 75vh;
       }
 
       .home-hero__inner {
-        padding: 2rem 1rem; /* Better vertical and horizontal spacing on mobile */
+        padding: var(--spacing-xl) var(--spacing-md); /* Consistent mobile spacing */
       }
 
       .home-hero__inner h1 {
-        font-size: 2.5rem; /* Larger font size for better readability */
-        margin-bottom: 1rem; /* Add more space below the heading */
-        line-height: 1.2; /* Better line height for mobile */
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md); /* Consistent mobile spacing */
+        line-height: 1.2;
       }
 
       .home-hero__inner p {
-        font-size: 1.1rem; /* Slightly larger font size */
-        margin-top: 1rem; /* More space above the paragraph */
-        line-height: 1.5; /* Better line height for readability */
-        max-width: 90%; /* Constrain width for better mobile readability */
+        font-size: 1.1rem;
+        margin-top: var(--spacing-md); /* Consistent mobile spacing */
+        line-height: 1.5;
+        max-width: 90%;
       }
 
       .hero-bg {
-        position: absolute; /* Disable fixed position on mobile */
-        height: 100%; /* Cover the hero area */
+        position: absolute;
+        height: 100%;
       }
 
       .btn {
-        padding: 0.8rem 1.5rem;
+        padding: var(--spacing-sm) var(--spacing-lg); /* Consistent mobile button spacing */
         font-size: 1rem;
       }
 
       /* About section mobile improvements */
       section.about {
-        padding: 1.5rem 1rem; /* Better padding for mobile */
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg) var(--spacing-md); /* Consistent mobile section padding */
       }
 
       section.about h2 {
-        font-size: 1.8rem; /* Adjust heading size */
-        margin-bottom: 1rem; /* Add space below heading */
-        text-align: center; /* Center align on mobile */
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-md) !important; /* Consistent mobile heading spacing */
+        text-align: center;
       }
 
       section.about p {
-        font-size: 1rem; /* Comfortable reading size */
-        line-height: 1.6; /* Better line height */
-        margin-bottom: 1rem; /* Space between paragraphs */
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-md) !important; /* Consistent mobile paragraph spacing */
       }
 
       .home-hero__cta {
-        margin-top: 2rem !important; /* Ensure proper spacing above buttons */
-        padding: 0 1rem; /* Add horizontal padding */
+        margin-top: var(--spacing-lg) !important; /* Consistent mobile CTA spacing */
+        padding: 0 var(--spacing-md);
       }
 
       .home-hero__cta .btn {
-        display: block; /* Stack buttons vertically on mobile */
-        margin: 0.5rem auto; /* Center buttons with vertical spacing */
-        width: 100%; /* Full width buttons */
-        max-width: 250px; /* But not too wide */
-        text-align: center; /* Center text */
+        display: block;
+        margin: var(--spacing-xs) auto; /* Consistent mobile button spacing */
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
       }
 
       /* Disable parallax on mobile for performance */
@@ -269,47 +318,48 @@
     /* Extra small screens (below 480px) */
     @media (max-width: 480px) {
       .home-hero__inner {
-        padding: 1.5rem 1rem; /* Adjust padding for very small screens */
+        padding: var(--spacing-lg) var(--spacing-md); /* Consistent small screen spacing */
       }
 
       .home-hero__inner h1 {
-        font-size: 2rem; /* Adjusted font size for small screens */
-        margin-bottom: 0.8rem;
+        font-size: 2rem;
+        margin-bottom: var(--spacing-sm); /* Consistent small screen spacing */
       }
 
       .home-hero__inner p {
-        font-size: 1rem; /* Adjusted font size for small screens */
-        margin-top: 0.8rem;
-        max-width: 95%; /* More width utilization on small screens */
+        font-size: 1rem;
+        margin-top: var(--spacing-sm); /* Consistent small screen spacing */
+        max-width: 95%;
       }
 
       .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem; /* Slightly smaller button text */
+        padding: var(--spacing-sm) var(--spacing-md); /* Consistent small screen button spacing */
+        font-size: 0.9rem;
       }
 
       /* About section for very small screens */
       section.about {
-        padding: 1rem 0.75rem; /* Tighter padding for small screens */
+        padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md) var(--spacing-sm); /* Consistent small screen section padding */
       }
 
       section.about h2 {
-        font-size: 1.5rem; /* Smaller heading for small screens */
-        margin-bottom: 0.8rem;
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm) !important; /* Consistent small screen heading spacing */
       }
 
       section.about p {
-        font-size: 0.9rem; /* Smaller text for small screens */
+        font-size: 0.9rem;
         line-height: 1.5;
+        margin-bottom: var(--spacing-sm) !important; /* Consistent small screen paragraph spacing */
       }
 
       .home-hero__cta {
-        padding: 0 0.5rem; /* Less horizontal padding */
+        padding: 0 var(--spacing-xs); /* Consistent small screen CTA padding */
       }
 
       .home-hero__cta .btn {
-        font-size: 0.9rem; /* Smaller button text */
-        padding: 0.75rem 1.25rem; /* Smaller button padding */
+        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-md); /* Consistent small screen button sizing */
       }
     }
   </style>
@@ -408,7 +458,7 @@
 
     <div class="home-hero__inner">
         <h1>TMU Rocketry</h1>
-        <p>student built liquid propulstion systems, advanced avionics, high quality research</p>
+        <p>Advanced liquid propulsion systems, precision avionics, and rigorous aerospace research</p>
     </div>
   </section>
 {% endblock %}
@@ -418,12 +468,12 @@
   <section class="about slide-in-bottom">
     <div class="md-container md-typeset">
       <h2>About TMU Rocketry</h2>
-      <p>TMU Rocketry is a student-led group dedicated to aerospace innovation. We design and build flight computers, ground station software, and conduct both hot-fire and cold-flow rocket tests—producing technical reports that advance our field.</p>
-      <p>Our projects span from circuit design for avionics, data acquisition during engine tests, to mission control software for high-altitude flights. TMU Rocketry provides hands-on aerospace experience for students passionate about propulsion and avionics.</p>
-      <div class="home-hero__cta" style="margin-top: 2rem; text-align: center;">
-        <a href="{{ 'https://discord.gg/3kak7Ydu43' | url }}" class="btn btn-primary" style="background-color: #00A8FF; color: white;">Discord</a>
-        <a href="{{ 'https://forms.gle/A2SYP1yG9MBLYpoK9' | url }}" class="btn btn-primary" style="background-color: #34495E; color: white;">Join Our Team</a>
-        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary" style="background-color: #2C3E50; color: white;">GitHub</a>{% endif %}
+      <p>TMU Rocketry is a student-led aerospace engineering organization dedicated to advancing rocket propulsion technology and avionics systems. We specialize in the design, development, and testing of liquid propulsion systems, integrated with sophisticated flight computers and ground station software.</p>
+      <p>Our comprehensive research program encompasses circuit design for mission-critical avionics, precision data acquisition during engine testing, and mission control software for high-altitude flight operations. Through rigorous testing protocols and detailed technical documentation, we provide students with professional aerospace engineering experience.</p>
+      <div class="home-hero__cta">
+        <a href="{{ 'https://discord.gg/3kak7Ydu43' | url }}" class="btn btn-primary" style="background-color: #1B365C; color: white; border: 1px solid #2C4F7C;">Join Community</a>
+        <a href="{{ 'https://forms.gle/A2SYP1yG9MBLYpoK9' | url }}" class="btn btn-primary" style="background-color: #2C3E50; color: white; border: 1px solid #34495E;">Apply Now</a>
+        {% if config.repo_url %}<a href="{{ config.repo_url }}" class="btn btn-secondary" style="background-color: #1A1A1A; color: white; border: 1px solid #333;">View Research</a>{% endif %}
       </div>
     </div>
   </section>
@@ -431,13 +481,13 @@
   <!-- Video Showcase Section -->
   <section class="video-showcase slide-in-bottom">
     <div class="md-container md-typeset">
-      <h2>Injector testing</h2>
-      <div class="video-container" style="position: relative; overflow: hidden; border-radius: 10px; margin: 1rem 0;">
-        <video class="showcase-video" autoplay muted loop playsinline preload="auto" poster="{{ base_url }}/assets/images/showcase-fallback.jpg" style="width: 100%; height: auto; border-radius: 10px;">
+      <h2>Propulsion System Testing</h2>
+      <div class="video-container" style="position: relative; overflow: hidden; border-radius: 6px;">
+        <video class="showcase-video" autoplay muted loop playsinline preload="auto" poster="{{ base_url }}/assets/images/showcase-fallback.jpg" style="width: 100%; height: auto; border-radius: 6px;">
           <source src="{{ base_url }}/assets/videos/coldflow1.mp4" type="video/mp4">
         </video>
       </div>
-      <p>Testing Injector.</p>
+      <p>Comprehensive injector characterization and fluid dynamics analysis for liquid propulsion systems.</p>
     </div>
   </section>
 
