@@ -3,7 +3,7 @@
 {% block extrahead %}
   {{ super() }}
   <link rel="stylesheet" href="{{ base_url }}/css/stars.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@300;400;600;700&display=swap">
   <style>
     body {
       background-color: #000; /* Fallback for when stars don't load */
@@ -78,7 +78,7 @@
 
     .hero-text-content {
       background: rgba(0, 0, 0, 0.5);
-      padding: 2rem 3rem;
+      padding: 1.5rem 2.5rem; /* Smaller bubble */
       border-radius: 15px;
       text-align: center;
       color: white;
@@ -87,12 +87,13 @@
     }
 
     .hero-text-content h1 {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 4rem; /* Larger font */
+      font-size: 2.5rem; /* Even smaller font */
       color: white;
       text-shadow: 0 2px 15px rgba(0,0,0,0.5); /* Deeper shadow */
       margin: 0;
+      letter-spacing: -0.02em; /* Tighter letter spacing for modern look */
     }
 
     .hero-text-content p {
@@ -109,16 +110,20 @@
 
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.25rem;
+      padding: 1rem 2rem; /* Bigger buttons */
+      border-radius: 12px; /* More rounded corners */
       text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      margin: 0 0.5rem;
+      border: 2px solid transparent;
+      backdrop-filter: blur(10px);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     /* Scroll-reveal animations */
