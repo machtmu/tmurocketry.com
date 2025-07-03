@@ -18,6 +18,18 @@
       background-color: transparent !important;
       box-shadow: none !important;
     }
+    .md-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px; /* Adjust height for desired gradient size */
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+      z-index: -1; /* Place it behind the header content */
+      pointer-events: none; /* Ensure it doesn't block interactions */
+    }
+
     .md-main__inner {
         margin-top: 0 !important;
     }
