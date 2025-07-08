@@ -4,10 +4,6 @@
 
 ![alt text](Assem1.PNG)
 
-# Join
-
-Challenges can be found on our [notion page](https://marstmu.notion.site/Open-Challenges-1b82fcb069e280fdaa63f3a509fd741e)
-
 ## Links
 
 - [BOM](https://docs.google.com/spreadsheets/d/14efr8l9_zVHHuwc9b49hxxgiD6_vnU3ExFUFa4B9Yjg/edit?usp=sharing)
