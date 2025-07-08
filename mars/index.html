@@ -55,8 +55,6 @@
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
-    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -94,11 +92,31 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Space Mono', monospace;
       color: var(--mars-offwhite);
-      background-color: #0A0E1A;
+      background: linear-gradient(to bottom, #0A0E1A 0, #0A0E1A 100vh, #3d1a1a 100vh, #5a2828 150vh, #3d1a1a 200vh, #0A0E1A 250vh);
     }
-    h1, h2, h3, h4, h5, h6 {
+    
+    /* Apply custom fonts only to main content areas */
+    .md-content,
+    .home-hero,
+    .gallery-section,
+    .about-section {
+      font-family: 'Space Mono', monospace;
+    }
+    
+    .md-content h1, 
+    .md-content h2, 
+    .md-content h3, 
+    .md-content h4, 
+    .md-content h5, 
+    .md-content h6,
+    .home-hero h1,
+    .gallery-section h1,
+    .gallery-section h2,
+    .gallery-section h3,
+    .gallery-section h4,
+    .gallery-section h5,
+    .gallery-section h6 {
       font-family: 'Orbitron', sans-serif;
     }
 
@@ -166,8 +184,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
       padding: var(--spacing-xxl) var(--spacing-xl);
       z-index: 1;
       max-width: 1200px;
@@ -213,7 +231,7 @@
     .home-hero__cta {
       margin-top: var(--spacing-xl);
       padding: 0;
-      text-align: center;
+      text-align: left;
     }
 
     .btn {
@@ -236,20 +254,83 @@
       color: var(--mars-gold);
     }
 
-    /* Gallery styling - simplified */
-    .gallery-section {
-      margin-top: 2rem;
-      padding: 1rem 0;
+    /* New Content Wrapper */
+    .main-content-wrapper {
+      padding: var(--spacing-xxl) 0;
+      position: relative;
+      z-index: 1;
     }
-    .vertical-photos {
-      display: flex;
+
+    /* Revamped Gallery Section */
+    .gallery-section-revamped {
+      margin-bottom: var(--spacing-xxl);
+      overflow: hidden;
+    }
+
+    .gallery-section-revamped h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-lg);
+      color: var(--mars-gold);
+    }
+
+    .gallery-scroller {
+      width: 100%;
       overflow-x: auto;
-      padding: 0 1rem;
     }
-    .vertical-photo {
-      height: 150px;
+
+    .gallery-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .gallery-card {
+      height: 400px;
+      margin: 0 var(--spacing-md);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(188, 155, 34, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-card:hover {
+      transform: scale(1.02);
+      border-color: var(--mars-gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .gallery-card img {
+      height: 100%;
       width: auto;
-      margin-right: 1rem;
+    }
+
+    /* Revamped About Section */
+    .about-section-revamped {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      padding: 0 var(--spacing-xl);
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      color: var(--mars-gold);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid var(--mars-gold);
     }
 
     /* About and group photo styling */
@@ -258,6 +339,8 @@
       text-align: center;
       margin: 1rem auto;
       max-width: 800px;
+      position: relative;
+      z-index: 1;
     }
     .group-photo {
       max-width: 100%;
@@ -267,52 +350,111 @@
     .group-photo-container {
       text-align: center;
       margin: 1rem auto;
+      position: relative;
+      z-index: 1;
     }
 
     /* Media queries for mobile devices */
     @media (max-width: 768px) {
-      .home-hero {
-        height: auto;
-        min-height: 75vh;
-      }
+    .main-content-wrapper {
+      padding: var(--spacing-lg) 0;
+    }
+    
+    .home-hero {
+      height: auto;
+      min-height: 75vh;
+    }
 
-      .home-hero__inner {
-        padding: var(--spacing-xl) var(--spacing-md);
-      }
+    .home-hero__inner {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
 
-      .home-hero__inner h1 {
-        font-size: 2rem;
-        margin-bottom: var(--spacing-md);
-        line-height: 1.2;
-      }
+    .home-hero__inner h1 {
+      font-size: 2rem;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
 
-      .home-hero__inner p {
-        font-size: 1rem;
-        margin-bottom: var(--spacing-md);
-        line-height: 1.5;
-        max-width: 90%;
-      }
+    .home-hero__inner p {
+      font-size: 1rem;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.5;
+      max-width: 90%;
+    }
 
-      .hero-bg {
-        position: absolute;
-        height: 100%;
-      }
+    .gallery-section-revamped {
+      margin-bottom: var(--spacing-xl);
+    }
 
-      .btn {
-        padding: var(--spacing-sm) var(--spacing-lg);
-        font-size: 1rem;
-      }
+    .gallery-card {
+      height: 250px;
+    }
+    
+    .about-section-revamped {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 0 var(--spacing-lg);
+      gap: var(--spacing-lg);
+    }
+    
+    .about-content p {
+        margin: 0 auto;
+    }
 
-      /* About section mobile improvements */
-      section:not(.home-hero) {
-        padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg) var(--spacing-md);
-      }
+    .image-container {
+      display: flex;
+      justify-content: center;
+    }
 
-      section:not(.home-hero) h2 {
-        font-size: 1.8rem;
-        margin-bottom: var(--spacing-md) !important;
-        text-align: center;
-      }
+    .image-container img {
+      max-width: 500px;
+      width: 100%;
+      border: none;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-height: 400px;
+      width: auto; /* Maintains aspect ratio */
+    }
+
+    .image-caption {
+      text-align: center;
+      font-style: italic; /* Ensures the text is italicized */
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center; /* Centers the images within the row */
+      gap: 20px; /* Adds space between the images */
+    }
+
+    .image-row img {
+      max-width: 45%; /* Ensures the images are responsive */
+      height: auto; /* Maintains the aspect ratio */
+    }
+
+    .hero-bg {
+      position: absolute;
+      height: 100%;
+    }
+
+    .btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-size: 1rem;
+    }
+
+    /* About section mobile improvements */
+    section:not(.home-hero) {
+      padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg) var(--spacing-md);
+    }
+
+    section:not(.home-hero) h2 {
+      font-size: 1.8rem;
+      margin-bottom: var(--spacing-md) !important;
+      text-align: center;
+    }
 
       section:not(.home-hero) p {
         font-size: 1rem;
@@ -334,11 +476,14 @@
       }
 
       /* Gallery mobile adjustments */
-      .vertical-photos {
-        padding: 0 1rem;
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+        padding: 0 var(--spacing-sm);
       }
-      .vertical-photo {
-        height: 120px; /* Adjust height for smaller screens */
+      
+      .gallery-item {
+        aspect-ratio: 1/1;
       }
       .group-photo-container {
         padding: 0 1rem;
@@ -353,6 +498,10 @@
 
     /* Extra small screens (below 480px) */
     @media (max-width: 480px) {
+      .main-content-wrapper {
+        padding: var(--spacing-lg) 0;
+      }
+      
       .home-hero__inner {
         padding: var(--spacing-lg) var(--spacing-md);
       }
@@ -368,12 +517,32 @@
         max-width: 95%;
       }
 
+      .gallery-section-revamped {
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .gallery-card {
+        height: 200px;
+      }
+
+      .about-section-revamped {
+        padding: 0 var(--spacing-md);
+      }
+
       .btn {
         padding: var(--spacing-sm) var(--spacing-md);
         font-size: 0.9rem;
       }
 
       /* Gallery small screen adjustments */
+      .gallery-section {
+        padding: var(--spacing-md) var(--spacing-sm);
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xs);
+      }
       section:not(.home-hero) {
         padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
       }
@@ -3465,24 +3634,30 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-
-  <!-- Gallery Section -->
-  <section class="gallery-section">
-    <div class="vertical-photos">
-      <img src="../assets/images/mars/1.jpg" alt="Photo 1" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/8.png" alt="Photo 2" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/3.jpg" alt="Photo 3" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/11.png" alt="Photo 4" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/pcb.jpg" alt="Photo 5" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/12.png" alt="Photo 6" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/2.jpg" alt="Photo 7" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/zn.png" alt="Photo 8" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/6.png" alt="Photo 9" class="vertical-photo" loading="lazy">
-      <img src="../assets/images/mars/15.png" alt="Photo 10" class="vertical-photo" loading="lazy">
-    </div>
+<div class="main-content-wrapper">
     
-    <!-- About Section within Gallery -->
-    <div class="about-section">
+  <!-- Gallery Section -->
+  <section class="gallery-section-revamped">
+    <h2>Gallery</h2>
+    <div class="gallery-scroller">
+      <div class="gallery-track">
+        <div class="gallery-card"><img src="../assets/images/mars/1.jpg" alt="Rocket Launch" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/8.png" alt="Rocket Design" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/3.jpg" alt="Team Work" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/11.png" alt="Engineering" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/pcb.jpg" alt="Electronics" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/12.png" alt="Assembly" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/2.jpg" alt="Launch Site" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/zn.png" alt="Components" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/6.png" alt="Testing" loading="lazy"></div>
+        <div class="gallery-card"><img src="../assets/images/mars/15.png" alt="Competition" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section-revamped">
+    <div class="about-content">
       <h2>About Us</h2>
       <p>
         The Metropolitan Aerospace Rocket Society (MARS) opens the doors to designing, manufacturing, and launching model rockets. The team, composed of passionate, energetic, and eager students, hosts tutorials to teach students all they need to know to create their own rockets, and they provide support throughout the process.<br><br>
@@ -3490,12 +3665,12 @@
         This year, MARS has had over 250 students interested in entering the world of model rocketry and has 500 members in our Discord.
       </p>
     </div>
-    
-    <div class="group-photo-container">
+    <div class="about-image">
       <img src="../assets/images/mars/group_photo.jpg" alt="Group Photo" class="group-photo" loading="lazy">
     </div>
   </section>
 
+</div>
 
               </article>
             </div>
