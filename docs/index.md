@@ -1,5 +1,5 @@
 ---
-title: TMU Rocketry
+title: Home
 template: index.html
 
 hide:
