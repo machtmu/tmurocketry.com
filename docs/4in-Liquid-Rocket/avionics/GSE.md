@@ -1,78 +1,25 @@
 # GSE
 
-Sonic Avionics will be developing ground support equipment. Next year, we'll develop avionics that can actuate valves, but this year it will all be done by the ground station.
+![alt text](IMG_2071.JPG)
 
-## Requirements
+## Top Row
 
-### Pad 
+- [Mean Well NDR-240-24 240W 24VDC 10A AC/DC](https://www.amazon.ca/dp/B09K5K5R48?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
+- [MEAN WELL MDR-60-5 AC to DC DIN-Rail Power Supply 5V 10 Amp 50W ](https://www.amazon.ca/dp/B005T6SAJI?ref=ppx_yo2ov_dt_b_fed_asin_title)
+- [C2-01CPU CLICK PLUS PLC](https://www.automationdirect.com/adc/shopping/catalog/programmable_controllers/click_plus_plcs_(stackable_micro_modular)/cpus/c2-01cpu)
+- [C2-14D2](https://www.automationdirect.com/adc/shopping/catalog/programmable_controllers/click_plus_plcs_(stackable_micro_modular)/cpu_option_slot_modules/c2-14d2)
+- [Steloproad Mini Industrial 5 Ports Gigabit Switch Hardened 5 Port RJ45 10/100/1000Mbps Ethernet Switch](https://www.amazon.ca/dp/B09WY79QBM?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
+- [LabJack T7-Pro](https://labjack.com/products/labjack-t7-pro)
 
-#### Telemetry 
+## Middle Row
 
-- **Pressure Transducers**: 4x [PTD25-10-1000H](https://www.automationdirect.com/adc/shopping/catalog/process_control_-a-_measurement/pressure_sensors/pressure_transmitters/ptd25-10-1000h)
-- **Thermocouples** 4x TBD
-- **Load Cell** 2x TBD, 0-10V
+- Random fuse box (VHB taped to din rail lol)
+- Random terminals, ground and 24V
+- Labjack breakout
 
-#### Control
+## Bottom Row
 
-- 10x 24v valves
-- 4x PWM Output
-- LED status
-
-#### Pelican Case
-
-##### PLC
-
-- **CPU:** Click PlUS C2-01CPU
-- **CPU Option Slot Module:** 
-
-- [Thermocouple module](https://www.automationdirect.com/adc/shopping/catalog/programmable_controllers/click_plus_plcs_(stackable_micro_modular)/stackable_i-z-o_modules/c0-04thm)
-
-### Mission Control
-
-#### Pelican Case
-
-- **CPU:** Click PlUS C2-01CPU
-- **CPU Option Slot Module:** 
-
-- 14x switches
-
-
-
-
-
-
-
-
-- Camera view
-- OBS live streaming
-
-
-
-### GSE
-- **Pressure Transducers**: Up to 4x [LPPT25-20-1000H](https://www.automationdirect.com/adc/shopping/catalog/process_control_-a-_measurement/pressure_sensors/pressure_transmitters/lppt25-20-1000h) (1% accuracy, current output) with expandability to 8 transducers
-
-### Mojave Sphinx
-
-
-
-### Inputs/Outputs
-
-    - Ox
-    - Fuel
-    - Chamber
-    - Extra in case we want to put one somewhere else
-- **Servos**: Up to 5x servo outputs
-    - Ox
-    - Fuel
-    - Purge
-    - Ox globe valve
-    - Regulator (potential)
-- **Regulators**: Electronic control for $CO_2$
-- **Load Cells**: 2x
-    - Tank weight
-    - Thrust
-
-### Communication
-- CAN connection to upper avionics
-- RFD900 port for testing purposes
-- No wired ground testing connection needed
+- [Relays](https://www.digikey.ca/en/products/detail/phoenix-contact/2903361/4755334)
+- More random terminals
+- Couple SSRs 
+- [13x 3 layer terminal blocks](https://www.digikey.ca/en/products/detail/phoenix-contact/3213713/3603867)
