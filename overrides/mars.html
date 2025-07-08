@@ -31,12 +31,18 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Space Mono', monospace;
       color: var(--mars-offwhite);
       background-color: #0A0E1A;
     }
+    .md-main {
+      font-family: 'Space Mono', monospace;
+    }
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Orbitron', sans-serif;
+    }
+
+    .md-content {
+      padding-bottom: 0;
     }
 
     /* Transparent header and nav bars */
@@ -173,37 +179,65 @@
       color: var(--mars-gold);
     }
 
-    /* Gallery styling - simplified */
+    /* Gallery styling */
     .gallery-section {
-      margin-top: 2rem;
-      padding: 1rem 0;
+      background-color: var(--mars-red);
+      padding: var(--spacing-lg) 0;
+      color: var(--mars-white);
+    }
+    .gallery-section h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-lg);
     }
     .vertical-photos {
       display: flex;
       overflow-x: auto;
-      padding: 0 1rem;
+      padding: 0 var(--spacing-lg);
+      gap: var(--spacing-md);
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: var(--mars-gold) #0A0E1A; /* Firefox */
+    }
+    .vertical-photos::-webkit-scrollbar {
+      height: 8px;
+    }
+    .vertical-photos::-webkit-scrollbar-track {
+      background: #0A0E1A;
+    }
+    .vertical-photos::-webkit-scrollbar-thumb {
+      background-color: var(--mars-gold);
+      border-radius: 4px;
     }
     .vertical-photo {
-      height: 150px;
+      max-height: 250px;
       width: auto;
-      margin-right: 1rem;
+      border-radius: 4px;
+      object-fit: contain;
     }
 
     /* About and group photo styling */
     .about-section {
-      padding: 1rem;
+      padding: var(--spacing-xl) var(--spacing-lg);
       text-align: center;
-      margin: 1rem auto;
-      max-width: 800px;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+    .about-section p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
     .group-photo {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
+      margin-top: var(--spacing-lg);
     }
     .group-photo-container {
       text-align: center;
-      margin: 1rem auto;
+      padding: 0 var(--spacing-lg) var(--spacing-xl);
     }
 
     /* Media queries for mobile devices */
@@ -271,14 +305,24 @@
       }
 
       /* Gallery mobile adjustments */
+      .gallery-section {
+        padding: var(--spacing-lg) 0;
+      }
+      .gallery-section h2 {
+        font-size: 2rem;
+      }
       .vertical-photos {
-        padding: 0 1rem;
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-sm);
       }
       .vertical-photo {
-        height: 120px; /* Adjust height for smaller screens */
+        max-height: 180px;
+      }
+      .about-section {
+        padding: var(--spacing-lg) var(--spacing-md);
       }
       .group-photo-container {
-        padding: 0 1rem;
+        padding: 0 var(--spacing-md) var(--spacing-lg);
       }
 
       /* Disable parallax on mobile for performance */
@@ -360,6 +404,7 @@
 
   <!-- Gallery Section -->
   <section class="gallery-section">
+    <h2>Gallery</h2>
     <div class="vertical-photos">
       <img src="{{ base_url }}/assets/images/mars/1.jpg" alt="Photo 1" class="vertical-photo" loading="lazy">
       <img src="{{ base_url }}/assets/images/mars/8.png" alt="Photo 2" class="vertical-photo" loading="lazy">
@@ -373,7 +418,7 @@
       <img src="{{ base_url }}/assets/images/mars/15.png" alt="Photo 10" class="vertical-photo" loading="lazy">
     </div>
     
-    <!-- About Section within Gallery -->
+    <!-- About Section -->
     <div class="about-section">
       <h2>About Us</h2>
       <p>
