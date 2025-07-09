@@ -1,12 +1,12 @@
-site_name: TMU Rocketry
+site_name: TMU Liquid Rocketry
 
 site_url: https://tmurocketry.com/
-site_description: TMU Rocketry
-site_author: TMU Rocketry
+site_description: TMU Liquid Rocketry
+site_author: TMU Liquid Rocketry
 repo_url: https://github.com/tmrocketry/tmurocketry.com
 edit_uri: edit/main/docs/
 
-copyright: TMU Rocketry © 2025 
+copyright: TMU Liquid Rocketry © 2025 
 
 theme:
   name: material
