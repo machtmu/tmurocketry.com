@@ -3,7 +3,7 @@ site_name: TMU Rocketry
 site_url: https://tmurocketry.com/
 site_description: TMU Rocketry
 site_author: TMU Rocketry
-repo_url: https://github.com/machtmu/tmurocketry.com
+repo_url: https://github.com/tmrocketry/tmurocketry.com
 edit_uri: edit/main/docs/
 
 copyright: TMU Rocketry © 2025 
@@ -36,7 +36,7 @@ theme:
         name: Switch to system preference
   icon:
     repo: fontawesome/brands/github
-  logo: img/logo.png
+  logo: img/logo1.png
   favicon: img/favicon.ico
   features:
     - content.action.edit
@@ -99,13 +99,13 @@ extra:
   generator: true
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/machtmu/
-    # - icon: fontawesome/brands/instagram
-    #   link: https://www.instagram.com/mars.tmu/
-    # - icon: fontawesome/brands/linkedin
-    #   link: https://www.linkedin.com/company/marstmu/?originalSubdomain=ca
-    # - icon: fontawesome/brands/discord
-    #   link: https://discord.gg/Wc7pYAxd
+      link: https://github.com/tmurocketry/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/tmurocketry/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/tmurocketry/
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/3kak7Ydu43
     # - icon: custom/notion
     #   link: https://marstmu.notion.site/MARS-Notion-1912fcb069e2804d92e6dc49248b4dbb
 
