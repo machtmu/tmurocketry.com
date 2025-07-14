@@ -1,6 +1,6 @@
 <div align="center">
   
-## This is the website for TMU Rocketry
+## This is the website for Mach
 
 <p align="center">
   <a href="https://github.com/tmurocketry/tmurocketry.com/actions/workflows/ci.yml"><img
