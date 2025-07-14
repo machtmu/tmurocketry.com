@@ -6,7 +6,7 @@ site_author: Mach
 repo_url: https://github.com/tmurocketry/tmurocketry.com
 edit_uri: edit/main/docs/
 
-copyright: TMU Liquid Rocketry © 2025 
+copyright: TMU Mach © 2025 
 
 theme:
   name: material
