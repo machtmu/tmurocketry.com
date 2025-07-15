@@ -1,8 +1,7 @@
 # 4" Liquid Rocket
 
-**This year we will be building a modified [Mojave Sphinx](https://www.halfcatrocketry.com/mojave-sphinx).**
+**This year we will be building a 4" liquid rocket'.**
 
-![alt text](Assem1.PNG)
 
 ## Links
 
