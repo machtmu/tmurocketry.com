@@ -1,12 +1,12 @@
-site_name: Mach
+site_name: MACH
 
 site_url: https://machtmu.com/
-site_description: Mach - TMU's Liquid Rocketry Team
+site_description: MACH - TMU's Liquid Rocketry
 site_author: Mach
 repo_url: https://github.com/tmurocketry/tmurocketry.com
 edit_uri: edit/main/docs/
 
-copyright: TMU Mach © 2025 
+copyright: MACH © 2025 
 
 theme:
   name: material
